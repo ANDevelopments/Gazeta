@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Android Studio
+Comment=Code Editing. Redefined.
+GenericName=Text Editor
+Exec=/home/id401kis/_soft/android-studio/bin/studio.sh
+Icon=/home/id401kis/_soft/android-studio/bin/studio.png
+Type=Application
+StartupNotify=false
+StartupWMClass=Code
+Categories=TextEditor;Development;IDE;
+MimeType=text/plain;inode/directory;application/x-code-workspace;
+Actions=new-empty-window;
+Keywords=android;
