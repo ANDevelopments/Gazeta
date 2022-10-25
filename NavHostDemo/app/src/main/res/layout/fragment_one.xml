@@ -17,6 +17,18 @@
         android:layout_margin="12dp"
         android:gravity="center"
         />
+
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="24dp"
+        android:background="@drawable/ic_baseline_share_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/oneBack"
+        android:id="@+id/shareTextButton"
+        android:contentDescription="@string/share"
+        />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

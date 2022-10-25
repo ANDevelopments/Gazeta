@@ -8,4 +8,6 @@
     <string name="nav_favorites">Избранное</string>
     <string name="my_message">Сообщение:</string>
     <string name="not_enough_length">Сообщение меньше 3 символов!</string>
+    <string name="attestation_one">Это задание на первую аттестацию!\n\nСделайте возможность поделиться текстом, переданным в этот фрагмент в качестве параметра.</string>
+    <string name="share">Поделиться</string>
 </resources>
