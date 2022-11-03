@@ -19,6 +19,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun Reset(view: View){
+        val countString = textView.text.toString()
+        var count: Int = Integer.parseInt(countString)
+        count = 0
+        textView.text = count.toString()
+    }
+
     fun toastMe(view: View){
         val myToast = Toast.makeText(this, "This is randomizer", Toast.LENGTH_SHORT)
 
