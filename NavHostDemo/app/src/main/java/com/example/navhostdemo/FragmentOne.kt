@@ -1,5 +1,6 @@
 package com.example.navhostdemo
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +11,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.navhostdemo.extensions.setMaxLines
-import com.google.android.material.snackbar.Snackbar
+
 
 class FragmentOne : Fragment() {
 
@@ -36,18 +36,10 @@ class FragmentOne : Fragment() {
             nav.navigateUp()
         }
         shareTextButton.setOnClickListener {
-            Snackbar
-                .make(
-                    fragmentOne,
-                    getString(R.string.attestation_one),
-                    Snackbar.LENGTH_INDEFINITE
-                )
-                .setAction("Ok") {
 
-                }
-                .setMaxLines(5)
-                .show()
         }
+
+
 
         return fragmentOne
     }
