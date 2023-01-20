@@ -36,11 +36,14 @@ class FragmentOne : Fragment() {
             nav.navigateUp()
         }
         shareTextButton.setOnClickListener {
-
+            val intent = Intent()
+            intent.action = Intent.ACTION_SEND
+            intent.putExtra(Intent.EXTRA_TEXT, textView.text)
+            intent.type = "text/plain"
+            startActivity(Intent.createChooser(intent, "Share To:"))
         }
-
-
-
         return fragmentOne
     }
 }
+
+

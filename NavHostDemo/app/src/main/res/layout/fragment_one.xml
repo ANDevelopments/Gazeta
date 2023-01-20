@@ -27,6 +27,10 @@
         app:layout_constraintBottom_toTopOf="@id/oneBack"
         android:id="@+id/shareTextButton"
         android:contentDescription="@string/share"
+        android:actionProviderClass=
+            "android.widget.ShareActionProvider"
+        android:showAsAction="ifRoom"
+        android:onClick="shareIntent"
         />
 
     <Button
