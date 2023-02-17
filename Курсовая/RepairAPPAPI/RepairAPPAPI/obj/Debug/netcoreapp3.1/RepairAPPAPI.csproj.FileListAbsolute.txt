@@ -24,3 +24,28 @@ D:\DEV\VS projects\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAP
 D:\DEV\VS projects\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.Serv.resources
 D:\DEV\VS projects\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.log_in.resources
 D:\DEV\VS projects\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.sign_up.resources
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\bin\Debug\netcoreapp3.1\RepairAPPAPI.exe
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\bin\Debug\netcoreapp3.1\RepairAPPAPI.deps.json
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\bin\Debug\netcoreapp3.1\RepairAPPAPI.runtimeconfig.json
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\bin\Debug\netcoreapp3.1\RepairAPPAPI.runtimeconfig.dev.json
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\bin\Debug\netcoreapp3.1\RepairAPPAPI.dll
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\bin\Debug\netcoreapp3.1\RepairAPPAPI.pdb
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.csprojAssemblyReference.cache
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.FormMain.resources
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.Client.resources
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.Document.resources
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.Orders.resources
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.Serv.resources
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.log_in.resources
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.sign_up.resources
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.csproj.GenerateResource.cache
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.AssemblyInfoInputs.cache
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.AssemblyInfo.cs
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.csproj.CoreCompileInputs.cache
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.csproj.CopyComplete
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.dll
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.pdb
+D:\Repair\art.nab47\Курсовая\RepairAPPAPI\RepairAPPAPI\obj\Debug\netcoreapp3.1\RepairAPPAPI.genruntimeconfig.cache

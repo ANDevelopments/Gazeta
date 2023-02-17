@@ -36,7 +36,9 @@ namespace RepairAPPAPI
                 using ClientLogic CL = new ClientLogic();
                 await CL.Create(new ClientModel()
                 {
-                    FullName = FullName, Adress = Adress, Telephone = Telephone
+                    FullName = FullName,
+                    Adress = Adress,
+                    Telephone = Convert.ToString(Telephone)
                 });
                 MessageBox.Show("Запись создана успешно", "Сохранение",
                                 MessageBoxButtons.OK,
