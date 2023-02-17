@@ -104,36 +104,42 @@ namespace RepairAPPAPI
         //DELETE
         private async void DeleteOrders()
         {
-            if (MessageBox.Show("Удалить запись?", "Сообщение",
-            MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                var row = Orders_dataGridView.Rows[SelectedRow].DataBoundItem as OrdersModel;
-                using OrdersLogic OL = new OrdersLogic();
-                await OL.Delete(row.ID);
-            }
+                if (MessageBox.Show("Удалить запись?", "Сообщение",
+                MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    var row = Orders_dataGridView.Rows[SelectedRow].DataBoundItem as OrdersModel;
+                    using OrdersLogic OL = new OrdersLogic();
+                    await OL.Delete(row.ID);
+                }
         }
         private async void DeleteClients()
         {
-            if (MessageBox.Show("Удалить запись?", "Сообщение",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                var row = Client_dataGridView.Rows[SelectedRow].DataBoundItem as ClientModel;
-                using ClientLogic CL = new ClientLogic();
-                await CL.Delete(row.ID);
-            }
+           
+                if (MessageBox.Show("Удалить запись?", "Сообщение",
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    var row = Client_dataGridView.Rows[SelectedRow].DataBoundItem as ClientModel;
+                    using ClientLogic CL = new ClientLogic();
+                    await CL.Delete(row.ID);
+                }
+          
         }
         private async void DeleteServs()
         {
-            if (MessageBox.Show("Удалить запись?", "Сообщение",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                var row = Serv_dataGridView.Rows[SelectedRow].DataBoundItem as ServModel;
-                using ServLogic SL = new ServLogic();
-                await SL.Delete(row.ID);
-            }
+           
+            
+                if (MessageBox.Show("Удалить запись?", "Сообщение",
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    var row = Serv_dataGridView.Rows[SelectedRow].DataBoundItem as ServModel;
+                    using ServLogic SL = new ServLogic();
+                    await SL.Delete(row.ID);
+                }
+            
         }
         private async void DeleteDocuments()
         {
+            
             if (MessageBox.Show("Удалить запись?", "Сообщение",
                 MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -379,37 +385,61 @@ namespace RepairAPPAPI
         //Кнопки "Изменить"
         private void Order_button_Alter_Click(object sender, EventArgs e)
         {
-            UpdateOrders();
+            if (Orders_dataGridView.Rows.Count > 0)
+            {
+                UpdateOrders();
+            }
         }
         private void Client_button_Alter_Click(object sender, EventArgs e)
         {
-            UpdateClients();
+            if (Client_dataGridView.Rows.Count > 0)
+            {
+                UpdateClients();
+            }
         }
         private void Serv_button_Alter_Click(object sender, EventArgs e)
         {
-            UpdateServs();
+            if (Serv_dataGridView.Rows.Count > 0)
+            {
+                UpdateServs();
+            }
         }
         private void Document_button_Alter_Click(object sender, EventArgs e)
         {
-            UpdateDocuments();
+            if (Document_dataGridView.Rows.Count > 0)
+            {
+                UpdateDocuments();
+            }
         }
 
         //Кнопки "Удалить"
         private void Order_button_Delete_Click(object sender, EventArgs e)
         {
-            DeleteOrders();
+            if (Orders_dataGridView.Rows.Count > 0)
+            {
+                DeleteOrders();
+            }
         }
         private void Client_button_Delete_Click(object sender, EventArgs e)
         {
-            DeleteClients();
+            if (Client_dataGridView.Rows.Count > 0)
+            {
+                DeleteClients();
+            }
         }
         private void Serv_button_Delete_Click(object sender, EventArgs e)
         {
-            DeleteServs();
+            if (Serv_dataGridView.Rows.Count > 0)
+            {
+                DeleteServs();
+            }
         }
         private void Document_button_Delete_Click(object sender, EventArgs e)
         {
-            DeleteDocuments();
+            if (Document_dataGridView.Rows.Count > 0)
+            {
+                DeleteDocuments();
+            }
         }
 
         //Кнопки "Новая запись"
