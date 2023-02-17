@@ -1,6 +1,7 @@
 ﻿using RepairAPPAPI.Data.Logic;
 using RepairAPPAPI.Data.Models;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace RepairAPPAPI
@@ -51,6 +52,21 @@ namespace RepairAPPAPI
             }
         }
 
+        private async void GetClients()
+        {
+            ClientLogic CL = new ClientLogic();
+            IEnumerable<ClientModel> list = await CL.GetAll();
+        }
+        private async void GetOrders()
+        {
+            OrdersLogic OL = new OrdersLogic();
+            IEnumerable<OrdersModel> Orderslist = await OL.GetAll();
+            foreach (var obj in Orderslist)
+            {
+                textBox_OrderID.Items.Add(obj.ID);
+            }
+        }
+
         private void button_Save_Click(object sender, EventArgs e)
         {
             CreateDocument();
@@ -62,6 +78,27 @@ namespace RepairAPPAPI
             textBox_ClientName.Text = "";
             textBox_OrderID.Text = "";
             textBox_Total.Text = "";
+        }
+
+        private void Document_Load(object sender, EventArgs e)
+        {
+            GetOrders();
+        }
+
+        private async void textBox_OrderID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var OrderID = Convert.ToInt32(textBox_OrderID.Text);
+            using (OrdersLogic OL = new OrdersLogic())
+            {
+                var item =  await OL.Get(OrderID);
+                textBox_ClientID.Text = Convert.ToString(item.ClientID);
+
+            }
+            using (ClientLogic CL = new ClientLogic())
+            {
+                var item = await CL.Get(Convert.ToInt32(textBox_ClientID.Text));
+                textBox_ClientName.Text = item.FullName;
+            }
         }
     }
 }

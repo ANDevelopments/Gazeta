@@ -1,6 +1,7 @@
 ﻿using RepairAPPAPI.Data.Logic;
 using RepairAPPAPI.Data.Models;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace RepairAPPAPI
@@ -54,6 +55,28 @@ namespace RepairAPPAPI
             }
         }
 
+        private async void GetClients()
+        {
+            ClientLogic CL = new ClientLogic();
+            IEnumerable<ClientModel> list = await CL.GetAll();
+            foreach (var obj in list)
+            {
+                textBox_ClientID.Items.Add(obj.ID);
+            }
+        }
+
+        private async void GetServs()
+        {
+            ServLogic SL = new ServLogic();
+            IEnumerable<ServModel> list = await SL.GetAll();
+            foreach (var obj in list)
+            {
+                textBox_ServiceName.Items.Add(obj.ServiceName);
+            }
+        }
+
+        string[] Progress = { "В процессе", "Выполнено" };
+
         private void button_Save_Click(object sender, EventArgs e)
         {
             CreateOrders();
@@ -66,6 +89,13 @@ namespace RepairAPPAPI
             textBox_Description.Text = "";
             textBox_Execution.Text = "";
             textBox_Progress.Text = "";
+        }
+
+        private void Orders_Load(object sender, EventArgs e)
+        {
+            GetClients();
+            GetServs();
+            textBox_Progress.Items.AddRange(Progress);
         }
     }
 }

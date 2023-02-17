@@ -36,20 +36,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox_Progress = new System.Windows.Forms.TextBox();
-            this.textBox_Execution = new System.Windows.Forms.TextBox();
             this.textBox_Description = new System.Windows.Forms.TextBox();
-            this.textBox_ServiceName = new System.Windows.Forms.TextBox();
-            this.textBox_ClientID = new System.Windows.Forms.TextBox();
+            this.textBox_Execution = new System.Windows.Forms.MaskedTextBox();
+            this.textBox_ClientID = new System.Windows.Forms.ListBox();
+            this.textBox_ServiceName = new System.Windows.Forms.ListBox();
+            this.textBox_Progress = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // button_Save
             // 
             this.button_Save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(250)))), ((int)(((byte)(133)))));
-            this.button_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Save.Location = new System.Drawing.Point(299, 252);
+            this.button_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button_Save.Location = new System.Drawing.Point(299, 315);
+            this.button_Save.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_Save.Name = "button_Save";
-            this.button_Save.Size = new System.Drawing.Size(156, 32);
+            this.button_Save.Size = new System.Drawing.Size(156, 40);
             this.button_Save.TabIndex = 38;
             this.button_Save.Text = "Сохранить";
             this.button_Save.UseVisualStyleBackColor = false;
@@ -58,10 +59,11 @@
             // button_Clear
             // 
             this.button_Clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(133)))), ((int)(((byte)(146)))));
-            this.button_Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Clear.Location = new System.Drawing.Point(155, 252);
+            this.button_Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button_Clear.Location = new System.Drawing.Point(155, 315);
+            this.button_Clear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_Clear.Name = "button_Clear";
-            this.button_Clear.Size = new System.Drawing.Size(124, 32);
+            this.button_Clear.Size = new System.Drawing.Size(124, 40);
             this.button_Clear.TabIndex = 37;
             this.button_Clear.Text = "Очистить";
             this.button_Clear.UseVisualStyleBackColor = false;
@@ -70,8 +72,8 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(94, 198);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(94, 248);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 20);
             this.label6.TabIndex = 36;
@@ -80,8 +82,8 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(18, 165);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(18, 206);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(172, 20);
             this.label5.TabIndex = 35;
@@ -90,8 +92,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(91, 132);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(91, 165);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 20);
             this.label4.TabIndex = 34;
@@ -100,8 +102,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(26, 99);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(26, 124);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(164, 20);
             this.label3.TabIndex = 33;
@@ -110,8 +112,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(112, 9);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(112, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(258, 25);
             this.label2.TabIndex = 32;
@@ -120,59 +122,72 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(80, 66);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(80, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 20);
             this.label1.TabIndex = 31;
             this.label1.Text = "ID клиента";
             // 
-            // textBox_Progress
-            // 
-            this.textBox_Progress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_Progress.Location = new System.Drawing.Point(219, 195);
-            this.textBox_Progress.Name = "textBox_Progress";
-            this.textBox_Progress.Size = new System.Drawing.Size(236, 27);
-            this.textBox_Progress.TabIndex = 30;
-            // 
-            // textBox_Execution
-            // 
-            this.textBox_Execution.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_Execution.Location = new System.Drawing.Point(219, 162);
-            this.textBox_Execution.Name = "textBox_Execution";
-            this.textBox_Execution.Size = new System.Drawing.Size(236, 27);
-            this.textBox_Execution.TabIndex = 29;
-            // 
             // textBox_Description
             // 
-            this.textBox_Description.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_Description.Location = new System.Drawing.Point(219, 129);
+            this.textBox_Description.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox_Description.Location = new System.Drawing.Point(219, 161);
+            this.textBox_Description.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox_Description.Name = "textBox_Description";
             this.textBox_Description.Size = new System.Drawing.Size(236, 27);
             this.textBox_Description.TabIndex = 28;
             // 
-            // textBox_ServiceName
+            // textBox_Execution
             // 
-            this.textBox_ServiceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_ServiceName.Location = new System.Drawing.Point(219, 96);
-            this.textBox_ServiceName.Name = "textBox_ServiceName";
-            this.textBox_ServiceName.Size = new System.Drawing.Size(236, 27);
-            this.textBox_ServiceName.TabIndex = 27;
+            this.textBox_Execution.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox_Execution.Location = new System.Drawing.Point(219, 202);
+            this.textBox_Execution.Mask = "00/00/0000";
+            this.textBox_Execution.Name = "textBox_Execution";
+            this.textBox_Execution.Size = new System.Drawing.Size(236, 30);
+            this.textBox_Execution.TabIndex = 39;
+            this.textBox_Execution.ValidatingType = typeof(System.DateTime);
             // 
             // textBox_ClientID
             // 
-            this.textBox_ClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_ClientID.Location = new System.Drawing.Point(219, 63);
+            this.textBox_ClientID.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox_ClientID.FormattingEnabled = true;
+            this.textBox_ClientID.ItemHeight = 23;
+            this.textBox_ClientID.Location = new System.Drawing.Point(219, 80);
             this.textBox_ClientID.Name = "textBox_ClientID";
             this.textBox_ClientID.Size = new System.Drawing.Size(236, 27);
-            this.textBox_ClientID.TabIndex = 26;
+            this.textBox_ClientID.TabIndex = 40;
+            // 
+            // textBox_ServiceName
+            // 
+            this.textBox_ServiceName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox_ServiceName.FormattingEnabled = true;
+            this.textBox_ServiceName.ItemHeight = 23;
+            this.textBox_ServiceName.Location = new System.Drawing.Point(219, 119);
+            this.textBox_ServiceName.Name = "textBox_ServiceName";
+            this.textBox_ServiceName.Size = new System.Drawing.Size(236, 27);
+            this.textBox_ServiceName.TabIndex = 41;
+            // 
+            // textBox_Progress
+            // 
+            this.textBox_Progress.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox_Progress.FormattingEnabled = true;
+            this.textBox_Progress.ItemHeight = 23;
+            this.textBox_Progress.Location = new System.Drawing.Point(219, 247);
+            this.textBox_Progress.Name = "textBox_Progress";
+            this.textBox_Progress.Size = new System.Drawing.Size(236, 27);
+            this.textBox_Progress.TabIndex = 42;
             // 
             // Orders
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(482, 303);
+            this.ClientSize = new System.Drawing.Size(482, 379);
+            this.Controls.Add(this.textBox_Progress);
+            this.Controls.Add(this.textBox_ServiceName);
+            this.Controls.Add(this.textBox_ClientID);
+            this.Controls.Add(this.textBox_Execution);
             this.Controls.Add(this.button_Save);
             this.Controls.Add(this.button_Clear);
             this.Controls.Add(this.label6);
@@ -181,13 +196,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox_Progress);
-            this.Controls.Add(this.textBox_Execution);
             this.Controls.Add(this.textBox_Description);
-            this.Controls.Add(this.textBox_ServiceName);
-            this.Controls.Add(this.textBox_ClientID);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Orders";
             this.Text = "Новый заказ";
+            this.Load += new System.EventHandler(this.Orders_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,10 +216,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox_Progress;
-        private System.Windows.Forms.TextBox textBox_Execution;
         private System.Windows.Forms.TextBox textBox_Description;
-        private System.Windows.Forms.TextBox textBox_ServiceName;
-        private System.Windows.Forms.TextBox textBox_ClientID;
+        private System.Windows.Forms.MaskedTextBox textBox_Execution;
+        private System.Windows.Forms.ListBox textBox_ClientID;
+        private System.Windows.Forms.ListBox textBox_ServiceName;
+        private System.Windows.Forms.ListBox textBox_Progress;
     }
 }

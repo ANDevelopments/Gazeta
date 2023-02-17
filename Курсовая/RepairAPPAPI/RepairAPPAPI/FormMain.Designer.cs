@@ -38,8 +38,8 @@ namespace RepairAPPAPI
             this.Order_button_Refresh = new System.Windows.Forms.Button();
             this.Order_button_Clear = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Order_textBox_Execution = new System.Windows.Forms.MaskedTextBox();
             this.Order_textBox_Progress = new System.Windows.Forms.TextBox();
-            this.Order_textBox_Execution = new System.Windows.Forms.TextBox();
             this.Order_textBox_OrderDate = new System.Windows.Forms.TextBox();
             this.Order_textBox_Descript = new System.Windows.Forms.TextBox();
             this.Order_textBox_ServiceName = new System.Windows.Forms.TextBox();
@@ -248,8 +248,8 @@ namespace RepairAPPAPI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(236)))), ((int)(((byte)(133)))));
-            this.panel1.Controls.Add(this.Order_textBox_Progress);
             this.panel1.Controls.Add(this.Order_textBox_Execution);
+            this.panel1.Controls.Add(this.Order_textBox_Progress);
             this.panel1.Controls.Add(this.Order_textBox_OrderDate);
             this.panel1.Controls.Add(this.Order_textBox_Descript);
             this.panel1.Controls.Add(this.Order_textBox_ServiceName);
@@ -267,6 +267,16 @@ namespace RepairAPPAPI
             this.panel1.Size = new System.Drawing.Size(638, 234);
             this.panel1.TabIndex = 4;
             // 
+            // Order_textBox_Execution
+            // 
+            this.Order_textBox_Execution.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Order_textBox_Execution.Location = new System.Drawing.Point(211, 166);
+            this.Order_textBox_Execution.Mask = "00/00/0000";
+            this.Order_textBox_Execution.Name = "Order_textBox_Execution";
+            this.Order_textBox_Execution.Size = new System.Drawing.Size(413, 24);
+            this.Order_textBox_Execution.TabIndex = 7;
+            this.Order_textBox_Execution.ValidatingType = typeof(System.DateTime);
+            // 
             // Order_textBox_Progress
             // 
             this.Order_textBox_Progress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -274,14 +284,6 @@ namespace RepairAPPAPI
             this.Order_textBox_Progress.Name = "Order_textBox_Progress";
             this.Order_textBox_Progress.Size = new System.Drawing.Size(413, 24);
             this.Order_textBox_Progress.TabIndex = 6;
-            // 
-            // Order_textBox_Execution
-            // 
-            this.Order_textBox_Execution.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Order_textBox_Execution.Location = new System.Drawing.Point(211, 165);
-            this.Order_textBox_Execution.Name = "Order_textBox_Execution";
-            this.Order_textBox_Execution.Size = new System.Drawing.Size(413, 24);
-            this.Order_textBox_Execution.TabIndex = 5;
             // 
             // Order_textBox_OrderDate
             // 
@@ -313,6 +315,7 @@ namespace RepairAPPAPI
             this.Order_textBox_ClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Order_textBox_ClientID.Location = new System.Drawing.Point(211, 53);
             this.Order_textBox_ClientID.Name = "Order_textBox_ClientID";
+            this.Order_textBox_ClientID.ReadOnly = true;
             this.Order_textBox_ClientID.Size = new System.Drawing.Size(413, 24);
             this.Order_textBox_ClientID.TabIndex = 1;
             // 
@@ -1359,7 +1362,6 @@ namespace RepairAPPAPI
         private TextBox Order_textBox_ClientID;
         private TextBox Order_textBox_OrderDate;
         private TextBox Order_textBox_Progress;
-        private TextBox Order_textBox_Execution;
         private Button Order_button_Refresh;
         private Button Order_button_Clear;
         private Button Order_button_Alter;
@@ -1442,5 +1444,6 @@ namespace RepairAPPAPI
         private DataGridViewTextBoxColumn OrdersOrderDateCol;
         private DataGridViewTextBoxColumn OrdersExecutionCol;
         private DataGridViewTextBoxColumn OrdersProgressCol;
+        private MaskedTextBox Order_textBox_Execution;
     }
 }
