@@ -865,6 +865,7 @@ namespace RepairAPPAPI
             this.Serv_textBox_Price.Name = "Serv_textBox_Price";
             this.Serv_textBox_Price.Size = new System.Drawing.Size(413, 24);
             this.Serv_textBox_Price.TabIndex = 1;
+            this.Serv_textBox_Price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Serv_textBox_Price_KeyPress);
             // 
             // Serv_textBox_ServiceName
             // 
@@ -1091,6 +1092,7 @@ namespace RepairAPPAPI
             this.Document_textBox_Total.Name = "Document_textBox_Total";
             this.Document_textBox_Total.Size = new System.Drawing.Size(413, 24);
             this.Document_textBox_Total.TabIndex = 4;
+            this.Document_textBox_Total.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Document_textBox_Total_KeyPress);
             // 
             // Document_textBox_OrderID
             // 

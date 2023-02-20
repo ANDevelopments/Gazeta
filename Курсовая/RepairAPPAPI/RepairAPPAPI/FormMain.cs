@@ -580,5 +580,15 @@ namespace RepairAPPAPI
                 SearchInDataGrid(Document_dataGridView, Document_textBox_Search);
             }
         }
+
+        private void Serv_textBox_Price_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsDigit(e.KeyChar));
+        }
+
+        private void Document_textBox_Total_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsDigit(e.KeyChar));
+        }
     }
 }
