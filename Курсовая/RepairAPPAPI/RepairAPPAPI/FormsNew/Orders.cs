@@ -18,6 +18,7 @@ namespace RepairAPPAPI
             textBox_ClientName.DropDownStyle = ComboBoxStyle.DropDownList;
             textBox_ServiceName.DropDownStyle = ComboBoxStyle.DropDownList;
             textBox_Progress.DropDownStyle = ComboBoxStyle.DropDownList;
+            
         }
 
         private async void CreateOrders()

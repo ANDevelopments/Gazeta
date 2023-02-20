@@ -1,4 +1,6 @@
-﻿namespace RepairAPPAPI
+﻿using System.Windows.Forms;
+
+namespace RepairAPPAPI
 {
     partial class Orders
     {
@@ -47,10 +49,9 @@
             // 
             this.button_Save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(250)))), ((int)(((byte)(133)))));
             this.button_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button_Save.Location = new System.Drawing.Point(299, 315);
-            this.button_Save.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button_Save.Location = new System.Drawing.Point(262, 236);
             this.button_Save.Name = "button_Save";
-            this.button_Save.Size = new System.Drawing.Size(156, 40);
+            this.button_Save.Size = new System.Drawing.Size(136, 30);
             this.button_Save.TabIndex = 5;
             this.button_Save.Text = "Сохранить";
             this.button_Save.UseVisualStyleBackColor = false;
@@ -60,10 +61,9 @@
             // 
             this.button_Clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(133)))), ((int)(((byte)(146)))));
             this.button_Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button_Clear.Location = new System.Drawing.Point(155, 315);
-            this.button_Clear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button_Clear.Location = new System.Drawing.Point(136, 236);
             this.button_Clear.Name = "button_Clear";
-            this.button_Clear.Size = new System.Drawing.Size(124, 40);
+            this.button_Clear.Size = new System.Drawing.Size(108, 30);
             this.button_Clear.TabIndex = 6;
             this.button_Clear.Text = "Очистить";
             this.button_Clear.UseVisualStyleBackColor = false;
@@ -73,9 +73,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(94, 248);
+            this.label6.Location = new System.Drawing.Point(82, 186);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(96, 20);
+            this.label6.Size = new System.Drawing.Size(77, 17);
             this.label6.TabIndex = 36;
             this.label6.Text = "Прогресс";
             // 
@@ -83,9 +83,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(18, 206);
+            this.label5.Location = new System.Drawing.Point(16, 154);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(172, 20);
+            this.label5.Size = new System.Drawing.Size(140, 17);
             this.label5.TabIndex = 35;
             this.label5.Text = "Срок выполнения";
             // 
@@ -93,9 +93,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(91, 165);
+            this.label4.Location = new System.Drawing.Point(80, 124);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 20);
+            this.label4.Size = new System.Drawing.Size(82, 17);
             this.label4.TabIndex = 34;
             this.label4.Text = "Описание";
             // 
@@ -103,9 +103,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(26, 124);
+            this.label3.Location = new System.Drawing.Point(23, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(164, 20);
+            this.label3.Size = new System.Drawing.Size(133, 17);
             this.label3.TabIndex = 33;
             this.label3.Text = "Название услуги";
             // 
@@ -113,9 +113,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(112, 11);
+            this.label2.Location = new System.Drawing.Point(98, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(258, 25);
+            this.label2.Size = new System.Drawing.Size(217, 20);
             this.label2.TabIndex = 32;
             this.label2.Text = "Создание нового заказа";
             // 
@@ -123,28 +123,28 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(54, 82);
+            this.label1.Location = new System.Drawing.Point(47, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 20);
+            this.label1.Size = new System.Drawing.Size(113, 17);
             this.label1.TabIndex = 31;
             this.label1.Text = "ФИО Клиента";
             // 
             // textBox_Description
             // 
             this.textBox_Description.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox_Description.Location = new System.Drawing.Point(219, 161);
-            this.textBox_Description.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox_Description.Location = new System.Drawing.Point(192, 121);
             this.textBox_Description.Name = "textBox_Description";
-            this.textBox_Description.Size = new System.Drawing.Size(236, 27);
+            this.textBox_Description.Size = new System.Drawing.Size(207, 23);
             this.textBox_Description.TabIndex = 2;
             // 
             // textBox_Execution
             // 
             this.textBox_Execution.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox_Execution.Location = new System.Drawing.Point(219, 202);
+            this.textBox_Execution.Location = new System.Drawing.Point(192, 152);
+            this.textBox_Execution.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_Execution.Mask = "00/00/0000";
             this.textBox_Execution.Name = "textBox_Execution";
-            this.textBox_Execution.Size = new System.Drawing.Size(236, 30);
+            this.textBox_Execution.Size = new System.Drawing.Size(207, 26);
             this.textBox_Execution.TabIndex = 3;
             this.textBox_Execution.ValidatingType = typeof(System.DateTime);
             // 
@@ -152,9 +152,10 @@
             // 
             this.textBox_ClientName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox_ClientName.FormattingEnabled = true;
-            this.textBox_ClientName.Location = new System.Drawing.Point(219, 77);
+            this.textBox_ClientName.Location = new System.Drawing.Point(192, 58);
+            this.textBox_ClientName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_ClientName.Name = "textBox_ClientName";
-            this.textBox_ClientName.Size = new System.Drawing.Size(236, 31);
+            this.textBox_ClientName.Size = new System.Drawing.Size(207, 25);
             this.textBox_ClientName.TabIndex = 0;
             this.textBox_ClientName.SelectedIndexChanged += new System.EventHandler(this.textBox_ClientID_SelectedIndexChanged);
             // 
@@ -162,26 +163,28 @@
             // 
             this.textBox_ServiceName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox_ServiceName.FormattingEnabled = true;
-            this.textBox_ServiceName.Location = new System.Drawing.Point(219, 119);
+            this.textBox_ServiceName.Location = new System.Drawing.Point(192, 89);
+            this.textBox_ServiceName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_ServiceName.Name = "textBox_ServiceName";
-            this.textBox_ServiceName.Size = new System.Drawing.Size(236, 31);
+            this.textBox_ServiceName.Size = new System.Drawing.Size(207, 25);
             this.textBox_ServiceName.TabIndex = 1;
             // 
             // textBox_Progress
             // 
             this.textBox_Progress.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox_Progress.FormattingEnabled = true;
-            this.textBox_Progress.Location = new System.Drawing.Point(219, 243);
+            this.textBox_Progress.Location = new System.Drawing.Point(192, 182);
+            this.textBox_Progress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_Progress.Name = "textBox_Progress";
-            this.textBox_Progress.Size = new System.Drawing.Size(236, 31);
+            this.textBox_Progress.Size = new System.Drawing.Size(207, 25);
             this.textBox_Progress.TabIndex = 4;
             // 
             // Orders
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(482, 379);
+            this.ClientSize = new System.Drawing.Size(422, 284);
             this.Controls.Add(this.textBox_Progress);
             this.Controls.Add(this.textBox_ServiceName);
             this.Controls.Add(this.textBox_ClientName);
@@ -195,7 +198,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_Description);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Orders";
             this.Text = "Новый заказ";
             this.Load += new System.EventHandler(this.Orders_Load);

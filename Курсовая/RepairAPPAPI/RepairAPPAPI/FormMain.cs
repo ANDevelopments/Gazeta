@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using RepairAPPAPI.Data.Logic;
+using System.Linq;
 
 namespace RepairAPPAPI
 {
@@ -116,34 +117,65 @@ namespace RepairAPPAPI
         //DELETE
         private async void DeleteOrders()
         {
-                if (MessageBox.Show("Удалить запись?", "Сообщение",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Удалить запись?", "Сообщение",
+            MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                var row = Orders_dataGridView.Rows[SelectedRow].DataBoundItem as OrdersModel;
+                DocumentLogic DL = new DocumentLogic();
+                IEnumerable<DocumentModel> doclist = await DL.GetAll();
+                var container = doclist.FirstOrDefault(c => c.OrderID == row.ID);
+                if (container != null)
                 {
-                    var row = Orders_dataGridView.Rows[SelectedRow].DataBoundItem as OrdersModel;
+                    MessageBox.Show("Невозможно удалить данный заказ, т.к. на него ссылается документ", "WARNING");
+                }
+                {
                     using OrdersLogic OL = new OrdersLogic();
                     await OL.Delete(row.ID);
+                    GetOrders();
                 }
+            }
         }
         private async void DeleteClients()
-        {  
-                if (MessageBox.Show("Удалить запись?", "Сообщение",
-                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+        {
+            if (MessageBox.Show("Удалить запись?", "Сообщение",
+                MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                var row = Client_dataGridView.Rows[SelectedRow].DataBoundItem as ClientModel;
+                OrdersLogic OL = new OrdersLogic();
+                IEnumerable<OrdersModel> orderslist = await OL.GetAll();
+                var container = orderslist.FirstOrDefault(c => c.ClientID == row.ID);
+                if (container != null)
                 {
-                    var row = Client_dataGridView.Rows[SelectedRow].DataBoundItem as ClientModel;
+                    MessageBox.Show("Невозможно удалить данного клиента, т.к. на него ссылается заказ", "WARNING");
+                }
+                else
+                {
                     using ClientLogic CL = new ClientLogic();
                     await CL.Delete(row.ID);
+                    GetClients();
                 }
+            }
           
         }
         private async void DeleteServs()
         {
-                if (MessageBox.Show("Удалить запись?", "Сообщение",
-                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Удалить запись?", "Сообщение",
+                MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                var row = Serv_dataGridView.Rows[SelectedRow].DataBoundItem as ServModel;
+                OrdersLogic OL = new OrdersLogic();
+                IEnumerable<OrdersModel> orderslist = await OL.GetAll();
+                var container = orderslist.FirstOrDefault(c => c.ServiceName == row.ServiceName);
+                if (container != null)
                 {
-                    var row = Serv_dataGridView.Rows[SelectedRow].DataBoundItem as ServModel;
+                    MessageBox.Show("Невозможно удалить данную услугу, т.к. на нее ссылается заказ", "WARNING");
+                }
+                {
                     using ServLogic SL = new ServLogic();
                     await SL.Delete(row.ID);
+                    GetServs();
                 }
+            }
             
         }
         private async void DeleteDocuments()
@@ -154,6 +186,7 @@ namespace RepairAPPAPI
                 var row = Document_dataGridView.Rows[SelectedRow].DataBoundItem as DocumentModel;
                 using DocumentLogic DL = new DocumentLogic();
                 await DL.Delete(row.ID);
+                GetDocuments();
             }
         }
 
@@ -186,6 +219,7 @@ namespace RepairAPPAPI
                     ServiceName = ServiceName, Descript = Descript, OrderDate = OrderDate,
                     Execution = Execution, Progress = Progress
                 });
+                GetOrders();
             }
         }
         private async void UpdateClients()
@@ -210,6 +244,7 @@ namespace RepairAPPAPI
                     ID = ID, FullName = FullName,
                     Adress = Adress, Telephone= Telephone
                 });
+                GetClients();
             }
         }
         private async void UpdateServs()
@@ -230,6 +265,7 @@ namespace RepairAPPAPI
                 {
                     ServiceName = ServiceName, Price = Price, ID = ID
                 });
+                GetServs();
             }
         }
         private async void UpdateDocuments()
@@ -257,6 +293,7 @@ namespace RepairAPPAPI
                     ID = ID, ClientID = ClientID, ClientName = ClientName,
                     OrderID = OrderID, Total = Total, DocumentDate = DocumentDate
                 });
+                GetDocuments();
             }
         }
 
@@ -284,6 +321,40 @@ namespace RepairAPPAPI
             }
         }
 
+        //Clear
+        private void ClearOrders()
+        {
+            Order_textBox_ID.Text = "";
+            Order_textBox_ClientName.Text = "";
+            Order_textBox_ServiceName.Text = "";
+            Order_textBox_Descript.Text = "";
+            Order_textBox_OrderDate.Text = "";
+            Order_textBox_Execution.Text = "";
+            Order_textBox_Progress.Text = "";
+        }
+        private void ClearClients()
+        {
+            Client_textBox_ID.Text = "";
+            Client_textBox_FullName.Text = "";
+            Client_textBox_Adress.Text = "";
+            Client_textBox_Telephone.Text = "";
+        }
+        private void ClearServs()
+        {
+            Serv_textBox_ServiceName.Text = "";
+            Serv_textBox_Price.Text = "";
+            Serv_textBox_ID.Text = "";
+        }
+        private void ClearDocuments()
+        {
+            Document_textBox_ID.Text = "";
+            Document_textBox_ClientID.Text = "";
+            Document_textBox_ClientName.Text = "";
+            Document_textBox_OrderID.Text = "";
+            Document_textBox_Total.Text = "";
+            Document_textBox_DocumentDate.Text = "";
+        }
+
         //Кнопки "Обновить"
         private void Order_button_Refresh_Click(object sender, EventArgs e)
         {
@@ -305,35 +376,19 @@ namespace RepairAPPAPI
         //Кнопки "Очистить"
         private void Order_button_Clear_Click(object sender, EventArgs e)
         {
-            Order_textBox_ID.Text = "";
-            Order_textBox_ClientName.Text = "";
-            Order_textBox_ServiceName.Text = "";
-            Order_textBox_Descript.Text = "";
-            Order_textBox_OrderDate.Text = "";
-            Order_textBox_Execution.Text = "";
-            Order_textBox_Progress.Text = "";
+            ClearOrders();
         }
         private void Client_button_Clear_Click(object sender, EventArgs e)
         {
-            Client_textBox_ID.Text = "";
-            Client_textBox_FullName.Text = "";
-            Client_textBox_Adress.Text = "";
-            Client_textBox_Telephone.Text = "";
+            ClearClients();
         }
         private void Serv_button_Clear_Click(object sender, EventArgs e)
         {
-            Serv_textBox_ServiceName.Text = "";
-            Serv_textBox_Price.Text = "";
-            Serv_textBox_ID.Text = "";
+            ClearServs();
         }
         private void Document_button_Clear_Click(object sender, EventArgs e)
         {
-            Document_textBox_ID.Text = "";
-            Document_textBox_ClientID.Text = "";
-            Document_textBox_ClientName.Text = "";
-            Document_textBox_OrderID.Text = "";
-            Document_textBox_Total.Text = "";
-            Document_textBox_DocumentDate.Text = "";
+            ClearDocuments();
         }
 
         //Нажатие по ячейке
@@ -413,6 +468,7 @@ namespace RepairAPPAPI
             {
                 UpdateOrders();
             }
+            ClearOrders();
         }
         private void Client_button_Alter_Click(object sender, EventArgs e)
         {
@@ -420,6 +476,7 @@ namespace RepairAPPAPI
             {
                 UpdateClients();
             }
+            ClearClients();
         }
         private void Serv_button_Alter_Click(object sender, EventArgs e)
         {
@@ -427,6 +484,7 @@ namespace RepairAPPAPI
             {
                 UpdateServs();
             }
+            ClearServs();
         }
         private void Document_button_Alter_Click(object sender, EventArgs e)
         {
@@ -434,6 +492,7 @@ namespace RepairAPPAPI
             {
                 UpdateDocuments();
             }
+            ClearDocuments();
         }
 
         //Кнопки "Удалить"
@@ -443,6 +502,7 @@ namespace RepairAPPAPI
             {
                 DeleteOrders();
             }
+            ClearOrders();
         }
         private void Client_button_Delete_Click(object sender, EventArgs e)
         {
@@ -450,6 +510,7 @@ namespace RepairAPPAPI
             {
                 DeleteClients();
             }
+            ClearClients();
         }
         private void Serv_button_Delete_Click(object sender, EventArgs e)
         {
@@ -457,6 +518,7 @@ namespace RepairAPPAPI
             {
                 DeleteServs();
             }
+            ClearServs();
         }
         private void Document_button_Delete_Click(object sender, EventArgs e)
         {
@@ -464,6 +526,7 @@ namespace RepairAPPAPI
             {
                 DeleteDocuments();
             }
+            ClearDocuments();
         }
 
         //Кнопки "Новая запись"
