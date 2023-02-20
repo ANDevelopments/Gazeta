@@ -8,6 +8,7 @@ namespace RepairAPPAPI
 {
     public partial class FormMain : Form
     {
+        int _ClientID;
         int SelectedRow;
         string[] ProgressList = { "В процессе", "Выполнено" };
         public FormMain()
@@ -160,7 +161,7 @@ namespace RepairAPPAPI
         private async void UpdateOrders()
         {
             var ID = Convert.ToInt32(Order_textBox_ID.Text);
-            var ClientID = Convert.ToInt32(Order_textBox_ClientName.Text);
+            var ClientID = _ClientID;
             var ServiceName = Order_textBox_ServiceName.Text;
             var Descript = Order_textBox_Descript.Text;
             var OrderDate = Convert.ToDateTime(Order_textBox_OrderDate.Text);
@@ -349,6 +350,7 @@ namespace RepairAPPAPI
                 {
                     Order_textBox_ID.Text = row.Cells[0].Value.ToString();
                     Order_textBox_ClientName.Text = ClientItem.FullName;
+                    _ClientID = clientID;
                     Order_textBox_ServiceName.Text = row.Cells[2].Value.ToString();
                     Order_textBox_Descript.Text = row.Cells[3].Value.ToString();
                     Order_textBox_OrderDate.Text = row.Cells[4].Value.ToString();
