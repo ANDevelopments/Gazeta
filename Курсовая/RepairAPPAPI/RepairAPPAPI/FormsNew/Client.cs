@@ -1,6 +1,9 @@
 ﻿using RepairAPPAPI.Data.Logic;
 using RepairAPPAPI.Data.Models;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -34,14 +37,25 @@ namespace RepairAPPAPI
             else
             {
                 using ClientLogic CL = new ClientLogic();
-                await CL.Create(new ClientModel()
+                IEnumerable<ClientModel> list = await CL.GetAll();
+                var container = list.FirstOrDefault(c => c.FullName == FullName);
+                if (container != null)
                 {
-                    FullName = FullName, Adress = Adress, Telephone = Telephone
-                });
-                MessageBox.Show("Запись создана успешно", "Сохранение",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-                this.Close();
+                    MessageBox.Show("Такой клиент уже существует", "Запись не может быть создана!");
+                }
+                else
+                {
+                    await CL.Create(new ClientModel()
+                    {
+                        FullName = FullName,
+                        Adress = Adress,
+                        Telephone = Telephone
+                    });
+                    MessageBox.Show("Запись создана успешно", "Сохранение",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 

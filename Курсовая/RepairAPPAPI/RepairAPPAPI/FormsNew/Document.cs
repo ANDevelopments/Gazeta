@@ -2,6 +2,7 @@
 using RepairAPPAPI.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace RepairAPPAPI
@@ -38,18 +39,27 @@ namespace RepairAPPAPI
             else
             {
                 using DocumentLogic DL = new DocumentLogic();
-                await DL.Create(new DocumentModel()
+                IEnumerable<DocumentModel> list = await DL.GetAll();
+                var container = list.FirstOrDefault(c => c.OrderID == OrderID);
+                if (container != null)
                 {
-                    ClientID = ClientID,
-                    ClientName = ClientName,
-                    OrderID= OrderID,
-                    Total = Total,
-                    DocumentDate = DocumentDate
-                });
-                MessageBox.Show("Запись создана успешно", "Сохранение",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-                this.Close();
+                    MessageBox.Show("По данному номеру заказа уже существует документ.", "Запись не может быть создана!");
+                }
+                else
+                {
+                    await DL.Create(new DocumentModel()
+                    {
+                        ClientID = ClientID,
+                        ClientName = ClientName,
+                        OrderID = OrderID,
+                        Total = Total,
+                        DocumentDate = DocumentDate
+                    });
+                    MessageBox.Show("Запись создана успешно", "Сохранение",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 

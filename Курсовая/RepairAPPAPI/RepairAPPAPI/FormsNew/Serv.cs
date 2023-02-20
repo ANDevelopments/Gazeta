@@ -1,6 +1,9 @@
 ﻿using RepairAPPAPI.Data.Logic;
 using RepairAPPAPI.Data.Models;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace RepairAPPAPI
@@ -29,15 +32,24 @@ namespace RepairAPPAPI
             else
             {
                 using ServLogic SL = new ServLogic();
-                await SL.Create(new ServModel()
+                IEnumerable<ServModel> list = await SL.GetAll();
+                var container = list.FirstOrDefault(c => c.ServiceName == ServiceName);
+                if (container != null)
                 {
-                    ServiceName = ServiceName,
-                    Price = Price
-                });
-                MessageBox.Show("Запись создана успешно", "Сохранение",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-                this.Close();
+                    MessageBox.Show("Услуга с таким названием уже существует", "Запись не может быть создана!");
+                }
+                else
+                {
+                    await SL.Create(new ServModel()
+                    {
+                        ServiceName = ServiceName,
+                        Price = Price
+                    });
+                    MessageBox.Show("Запись создана успешно", "Сохранение",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 
