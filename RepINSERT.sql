@@ -1,9 +1,6 @@
 USE Repair
 GO
 
-ALTER TABLE Client
-ALTER COLUMN Telephone VARCHAR(20);
-
 INSERT INTO Client (FullName, Adress, Telephone)
 VALUES
 ('Иван Иванович Иванов', 'Пролетарская', '+7(951)999-5675'),

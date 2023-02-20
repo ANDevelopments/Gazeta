@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kNwt7iSktcrPIww8wF+TJSAv8ecp3aLuWwxV7QNG+2Z4XNCarPd0i7Afe9fkYGijBghAVY/C660Uijt3YYYkqw==",
+  "dgSpecHash": "MCX8VvHMmhmKEQS6QhHA0nVZl/OZAPkymJq5M+tvcBhz0gj1qleD2j4HP3Fqr7/pd3zJ69DNgTsWAU/oPm6Bjw==",
   "success": true,
-  "projectFilePath": "D:\\Repair\\art.nab47\\Repair курсовая\\RepairApiDotNET3.1\\RepairApiDotNET3.1\\RepairApiDotNET3.csproj",
+  "projectFilePath": "D:\\Repair\\art.nab47\\Курсовая\\RepairApiDotNET3.1\\RepairApiDotNET3.1\\RepairApiDotNET3.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\id401kis\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\id401kis\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
