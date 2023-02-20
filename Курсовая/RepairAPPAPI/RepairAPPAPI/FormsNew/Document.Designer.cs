@@ -38,7 +38,7 @@
             this.textBox_Total = new System.Windows.Forms.TextBox();
             this.textBox_ClientName = new System.Windows.Forms.TextBox();
             this.textBox_ClientID = new System.Windows.Forms.TextBox();
-            this.textBox_OrderID = new System.Windows.Forms.ListBox();
+            this.textBox_OrderID = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button_Save
@@ -49,7 +49,7 @@
             this.button_Save.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_Save.Name = "button_Save";
             this.button_Save.Size = new System.Drawing.Size(156, 40);
-            this.button_Save.TabIndex = 51;
+            this.button_Save.TabIndex = 4;
             this.button_Save.Text = "Сохранить";
             this.button_Save.UseVisualStyleBackColor = false;
             this.button_Save.Click += new System.EventHandler(this.button_Save_Click);
@@ -62,7 +62,7 @@
             this.button_Clear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_Clear.Name = "button_Clear";
             this.button_Clear.Size = new System.Drawing.Size(124, 40);
-            this.button_Clear.TabIndex = 50;
+            this.button_Clear.TabIndex = 5;
             this.button_Clear.Text = "Очистить";
             this.button_Clear.UseVisualStyleBackColor = false;
             this.button_Clear.Click += new System.EventHandler(this.button_Clear_Click);
@@ -124,7 +124,7 @@
             this.textBox_Total.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox_Total.Name = "textBox_Total";
             this.textBox_Total.Size = new System.Drawing.Size(236, 27);
-            this.textBox_Total.TabIndex = 42;
+            this.textBox_Total.TabIndex = 3;
             // 
             // textBox_ClientName
             // 
@@ -132,8 +132,9 @@
             this.textBox_ClientName.Location = new System.Drawing.Point(219, 161);
             this.textBox_ClientName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox_ClientName.Name = "textBox_ClientName";
+            this.textBox_ClientName.ReadOnly = true;
             this.textBox_ClientName.Size = new System.Drawing.Size(236, 27);
-            this.textBox_ClientName.TabIndex = 40;
+            this.textBox_ClientName.TabIndex = 2;
             // 
             // textBox_ClientID
             // 
@@ -141,18 +142,18 @@
             this.textBox_ClientID.Location = new System.Drawing.Point(219, 120);
             this.textBox_ClientID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox_ClientID.Name = "textBox_ClientID";
+            this.textBox_ClientID.ReadOnly = true;
             this.textBox_ClientID.Size = new System.Drawing.Size(236, 27);
-            this.textBox_ClientID.TabIndex = 39;
+            this.textBox_ClientID.TabIndex = 1;
             // 
             // textBox_OrderID
             // 
             this.textBox_OrderID.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox_OrderID.FormattingEnabled = true;
-            this.textBox_OrderID.ItemHeight = 23;
-            this.textBox_OrderID.Location = new System.Drawing.Point(219, 78);
+            this.textBox_OrderID.Location = new System.Drawing.Point(219, 79);
             this.textBox_OrderID.Name = "textBox_OrderID";
-            this.textBox_OrderID.Size = new System.Drawing.Size(236, 27);
-            this.textBox_OrderID.TabIndex = 53;
+            this.textBox_OrderID.Size = new System.Drawing.Size(236, 31);
+            this.textBox_OrderID.TabIndex = 0;
             this.textBox_OrderID.SelectedIndexChanged += new System.EventHandler(this.textBox_OrderID_SelectedIndexChanged);
             // 
             // Document
@@ -194,6 +195,6 @@
         private System.Windows.Forms.TextBox textBox_Total;
         private System.Windows.Forms.TextBox textBox_ClientName;
         private System.Windows.Forms.TextBox textBox_ClientID;
-        private System.Windows.Forms.ListBox textBox_OrderID;
+        private System.Windows.Forms.ComboBox textBox_OrderID;
     }
 }

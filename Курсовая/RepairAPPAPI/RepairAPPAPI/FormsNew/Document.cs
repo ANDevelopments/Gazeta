@@ -12,6 +12,7 @@ namespace RepairAPPAPI
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            textBox_OrderID.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private async void CreateDocument()
@@ -90,7 +91,7 @@ namespace RepairAPPAPI
             var OrderID = Convert.ToInt32(textBox_OrderID.Text);
             using (OrdersLogic OL = new OrdersLogic())
             {
-                var item =  await OL.Get(OrderID);
+                var item = await OL.Get(OrderID);
                 textBox_ClientID.Text = Convert.ToString(item.ClientID);
 
             }

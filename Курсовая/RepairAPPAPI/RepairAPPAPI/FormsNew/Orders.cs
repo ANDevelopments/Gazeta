@@ -2,21 +2,27 @@
 using RepairAPPAPI.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace RepairAPPAPI
 {
     public partial class Orders : Form
     {
+        int _ClientID;
         public Orders()
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            textBox_ClientName.DropDownStyle = ComboBoxStyle.DropDownList;
+            textBox_ServiceName.DropDownStyle = ComboBoxStyle.DropDownList;
+            textBox_Progress.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private async void CreateOrders()
         {
-            var ClientID = Convert.ToInt32(textBox_ClientID.Text);
+            var ClientID = _ClientID;
             var ServiceName = textBox_ServiceName.Text;
             var Descript = textBox_Description.Text;
             var OrderDate = DateTime.Now;
@@ -61,7 +67,7 @@ namespace RepairAPPAPI
             IEnumerable<ClientModel> list = await CL.GetAll();
             foreach (var obj in list)
             {
-                textBox_ClientID.Items.Add(obj.ID);
+                textBox_ClientName.Items.Add(obj.FullName);
             }
         }
 
@@ -84,7 +90,7 @@ namespace RepairAPPAPI
 
         private void button_Clear_Click(object sender, EventArgs e)
         {
-            textBox_ClientID.Text = "";
+            textBox_ClientName.Text = "";
             textBox_ServiceName.Text = "";
             textBox_Description.Text = "";
             textBox_Execution.Text = "";
@@ -96,6 +102,15 @@ namespace RepairAPPAPI
             GetClients();
             GetServs();
             textBox_Progress.Items.AddRange(Progress);
+        }
+
+        private async void textBox_ClientID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var ClientName = textBox_ClientName.Text;
+            ClientLogic CL = new ClientLogic();
+            IEnumerable<ClientModel> list = await CL.GetAll();
+            var container = list.FirstOrDefault(c => c.FullName == ClientName);
+            _ClientID = container.ID;
         }
     }
 }

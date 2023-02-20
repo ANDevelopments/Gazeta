@@ -47,7 +47,7 @@
             this.button_Save.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_Save.Name = "button_Save";
             this.button_Save.Size = new System.Drawing.Size(156, 40);
-            this.button_Save.TabIndex = 30;
+            this.button_Save.TabIndex = 3;
             this.button_Save.Text = "Сохранить";
             this.button_Save.UseVisualStyleBackColor = false;
             this.button_Save.Click += new System.EventHandler(this.button_Save_Click);
@@ -60,7 +60,7 @@
             this.button_Clear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_Clear.Name = "button_Clear";
             this.button_Clear.Size = new System.Drawing.Size(124, 40);
-            this.button_Clear.TabIndex = 29;
+            this.button_Clear.TabIndex = 4;
             this.button_Clear.Text = "Очистить";
             this.button_Clear.UseVisualStyleBackColor = false;
             this.button_Clear.Click += new System.EventHandler(this.button_Clear_Click);
@@ -112,7 +112,7 @@
             this.textBox_Adress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox_Adress.Name = "textBox_Adress";
             this.textBox_Adress.Size = new System.Drawing.Size(236, 27);
-            this.textBox_Adress.TabIndex = 23;
+            this.textBox_Adress.TabIndex = 1;
             // 
             // textBox_FullName
             // 
@@ -121,7 +121,7 @@
             this.textBox_FullName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox_FullName.Name = "textBox_FullName";
             this.textBox_FullName.Size = new System.Drawing.Size(236, 27);
-            this.textBox_FullName.TabIndex = 22;
+            this.textBox_FullName.TabIndex = 0;
             // 
             // textBox_Telephone
             // 
@@ -130,7 +130,7 @@
             this.textBox_Telephone.Mask = "+7(999) 000-0000";
             this.textBox_Telephone.Name = "textBox_Telephone";
             this.textBox_Telephone.Size = new System.Drawing.Size(236, 30);
-            this.textBox_Telephone.TabIndex = 31;
+            this.textBox_Telephone.TabIndex = 2;
             // 
             // Client
             // 

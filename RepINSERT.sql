@@ -3,8 +3,6 @@ GO
 
 ALTER TABLE Client
 ALTER COLUMN Telephone VARCHAR(20);
-ALTER TABLE Progress
-ALTER COLUMN Progress VARCHAR(20);
 
 INSERT INTO Client (FullName, Adress, Telephone)
 VALUES
