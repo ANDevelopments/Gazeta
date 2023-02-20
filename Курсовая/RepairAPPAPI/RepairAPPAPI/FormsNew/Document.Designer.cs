@@ -125,6 +125,7 @@
             this.textBox_Total.Name = "textBox_Total";
             this.textBox_Total.Size = new System.Drawing.Size(236, 27);
             this.textBox_Total.TabIndex = 3;
+            this.textBox_Total.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Total_KeyPress);
             // 
             // textBox_ClientName
             // 

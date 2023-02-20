@@ -101,6 +101,7 @@
             this.textBox_Price.Name = "textBox_Price";
             this.textBox_Price.Size = new System.Drawing.Size(236, 27);
             this.textBox_Price.TabIndex = 1;
+            this.textBox_Price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Price_KeyPress);
             // 
             // textBox_ServiceName
             // 

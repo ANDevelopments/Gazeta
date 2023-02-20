@@ -581,14 +581,26 @@ namespace RepairAPPAPI
             }
         }
 
-        private void Serv_textBox_Price_KeyPress(object sender, KeyPressEventArgs e)
+        private void Order_textBox_ServiceName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsDigit(e.KeyChar));
+            e.Handled = true;
+        }
+        private void Order_textBox_Progress_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
 
+        private void Serv_textBox_Price_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) | e.KeyChar == '\b') return;
+            else
+                e.Handled = true;
+        }
         private void Document_textBox_Total_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsDigit(e.KeyChar));
+            if (Char.IsNumber(e.KeyChar) | e.KeyChar == '\b') return;
+            else
+                e.Handled = true;
         }
     }
 }

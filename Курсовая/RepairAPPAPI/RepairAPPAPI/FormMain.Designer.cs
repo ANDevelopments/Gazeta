@@ -93,8 +93,8 @@ namespace RepairAPPAPI
             this.Serv_button_Refresh = new System.Windows.Forms.Button();
             this.Serv_button_Clear = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Serv_textBox_ID = new System.Windows.Forms.TextBox();
             this.Serv_textBox_Price = new System.Windows.Forms.TextBox();
+            this.Serv_textBox_ID = new System.Windows.Forms.TextBox();
             this.Serv_textBox_ServiceName = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -275,6 +275,7 @@ namespace RepairAPPAPI
             this.Order_textBox_ServiceName.Name = "Order_textBox_ServiceName";
             this.Order_textBox_ServiceName.Size = new System.Drawing.Size(413, 26);
             this.Order_textBox_ServiceName.TabIndex = 2;
+            this.Order_textBox_ServiceName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Order_textBox_ServiceName_KeyPress);
             // 
             // Order_textBox_Progress
             // 
@@ -284,6 +285,7 @@ namespace RepairAPPAPI
             this.Order_textBox_Progress.Name = "Order_textBox_Progress";
             this.Order_textBox_Progress.Size = new System.Drawing.Size(413, 26);
             this.Order_textBox_Progress.TabIndex = 6;
+            this.Order_textBox_Progress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Order_textBox_Progress_KeyPress);
             // 
             // Order_textBox_Execution
             // 
@@ -838,8 +840,8 @@ namespace RepairAPPAPI
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(236)))), ((int)(((byte)(133)))));
-            this.panel3.Controls.Add(this.Serv_textBox_ID);
             this.panel3.Controls.Add(this.Serv_textBox_Price);
+            this.panel3.Controls.Add(this.Serv_textBox_ID);
             this.panel3.Controls.Add(this.Serv_textBox_ServiceName);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label18);
@@ -849,6 +851,15 @@ namespace RepairAPPAPI
             this.panel3.Size = new System.Drawing.Size(638, 234);
             this.panel3.TabIndex = 22;
             // 
+            // Serv_textBox_Price
+            // 
+            this.Serv_textBox_Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Serv_textBox_Price.Location = new System.Drawing.Point(211, 81);
+            this.Serv_textBox_Price.Name = "Serv_textBox_Price";
+            this.Serv_textBox_Price.Size = new System.Drawing.Size(413, 24);
+            this.Serv_textBox_Price.TabIndex = 4;
+            this.Serv_textBox_Price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Serv_textBox_Price_KeyPress);
+            // 
             // Serv_textBox_ID
             // 
             this.Serv_textBox_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -857,15 +868,6 @@ namespace RepairAPPAPI
             this.Serv_textBox_ID.ReadOnly = true;
             this.Serv_textBox_ID.Size = new System.Drawing.Size(413, 24);
             this.Serv_textBox_ID.TabIndex = 2;
-            // 
-            // Serv_textBox_Price
-            // 
-            this.Serv_textBox_Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Serv_textBox_Price.Location = new System.Drawing.Point(211, 81);
-            this.Serv_textBox_Price.Name = "Serv_textBox_Price";
-            this.Serv_textBox_Price.Size = new System.Drawing.Size(413, 24);
-            this.Serv_textBox_Price.TabIndex = 1;
-            this.Serv_textBox_Price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Serv_textBox_Price_KeyPress);
             // 
             // Serv_textBox_ServiceName
             // 
@@ -1397,7 +1399,6 @@ namespace RepairAPPAPI
         private Button Serv_button_Clear;
         private Panel panel3;
         private TextBox Serv_textBox_ID;
-        private TextBox Serv_textBox_Price;
         private TextBox Serv_textBox_ServiceName;
         private Label label13;
         private Label label18;
@@ -1453,5 +1454,6 @@ namespace RepairAPPAPI
         private MaskedTextBox Client_textBox_Telephone;
         private ComboBox Order_textBox_Progress;
         private ComboBox Order_textBox_ServiceName;
+        private TextBox Serv_textBox_Price;
     }
 }

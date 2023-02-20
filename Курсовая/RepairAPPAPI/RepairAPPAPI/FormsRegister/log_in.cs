@@ -40,10 +40,11 @@ namespace RepairAPPAPI
             var UserPassword = textBox_password.Text;
             RegisterLogic RL = new RegisterLogic();
             IEnumerable<RegisterModel> list = await RL.GetAll();
-            var container = list.FirstOrDefault(c => c.UserPassword == UserPassword);
-            if (container != null)
+            var LoginContainer = list.FirstOrDefault(c => c.UserLogin == UserLogin);
+            var PasswordContainer = list.FirstOrDefault(c => c.UserPassword == UserPassword);
+            if (LoginContainer != null && PasswordContainer != null)
             {
-                MessageBox.Show("Вы успешно вошли");
+                MessageBox.Show("Вы вошли успешно");
                 FormMain formMain = new FormMain();
                 this.Hide();
                 formMain.ShowDialog();

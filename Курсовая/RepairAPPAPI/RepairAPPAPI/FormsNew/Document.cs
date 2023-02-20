@@ -111,5 +111,12 @@ namespace RepairAPPAPI
                 textBox_ClientName.Text = item.FullName;
             }
         }
+
+        private void textBox_Total_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) | e.KeyChar == '\b') return;
+            else
+                e.Handled = true;
+        }
     }
 }

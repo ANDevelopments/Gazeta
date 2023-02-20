@@ -63,5 +63,12 @@ namespace RepairAPPAPI
             textBox_ServiceName.Text = "";
             textBox_Price.Text = "";
         }
+
+        private void textBox_Price_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) | e.KeyChar == '\b') return;
+            else
+                e.Handled = true;
+        }
     }
 }
