@@ -1,37 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DEV\\VS projects\\RepairAPPAPI\\RepairAPPAPI\\RepairAPPAPI.csproj": {}
+    "D:\\Repair\\art.nab47\\Курсовая\\RepairAPPAPI\\RepairAPPAPI\\RepairAPPAPI.csproj": {}
   },
   "projects": {
-    "D:\\DEV\\VS projects\\RepairAPPAPI\\RepairAPPAPI\\RepairAPPAPI.csproj": {
+    "D:\\Repair\\art.nab47\\Курсовая\\RepairAPPAPI\\RepairAPPAPI\\RepairAPPAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DEV\\VS projects\\RepairAPPAPI\\RepairAPPAPI\\RepairAPPAPI.csproj",
+        "projectUniqueName": "D:\\Repair\\art.nab47\\Курсовая\\RepairAPPAPI\\RepairAPPAPI\\RepairAPPAPI.csproj",
         "projectName": "RepairAPPAPI",
-        "projectPath": "D:\\DEV\\VS projects\\RepairAPPAPI\\RepairAPPAPI\\RepairAPPAPI.csproj",
-        "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "D:\\DEV\\VS projects\\RepairAPPAPI\\RepairAPPAPI\\obj\\",
+        "projectPath": "D:\\Repair\\art.nab47\\Курсовая\\RepairAPPAPI\\RepairAPPAPI\\RepairAPPAPI.csproj",
+        "packagesPath": "C:\\Users\\id401kis\\.nuget\\packages\\",
+        "outputPath": "D:\\Repair\\art.nab47\\Курсовая\\RepairAPPAPI\\RepairAPPAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\id401kis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -43,7 +41,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNet.WebApi.Client": {
               "target": "Package",
@@ -60,11 +57,16 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -73,7 +75,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

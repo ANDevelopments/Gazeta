@@ -124,8 +124,7 @@ namespace RepairAPPAPI
                 }
         }
         private async void DeleteClients()
-        {
-           
+        {  
                 if (MessageBox.Show("Удалить запись?", "Сообщение",
                     MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -137,8 +136,6 @@ namespace RepairAPPAPI
         }
         private async void DeleteServs()
         {
-           
-            
                 if (MessageBox.Show("Удалить запись?", "Сообщение",
                     MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -149,8 +146,7 @@ namespace RepairAPPAPI
             
         }
         private async void DeleteDocuments()
-        {
-            
+        {   
             if (MessageBox.Show("Удалить запись?", "Сообщение",
                 MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -342,57 +338,69 @@ namespace RepairAPPAPI
         //Нажатие по ячейке
         private async void Orders_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            SelectedRow = e.RowIndex;
-            DataGridViewRow row = Orders_dataGridView.Rows[SelectedRow];
-            int clientID = Convert.ToInt32(row.Cells[1].Value.ToString());
-            ClientLogic CL = new ClientLogic();
-            var ClientItem = await CL.Get(clientID);
             if (e.RowIndex >= 0)
             {
-                Order_textBox_ID.Text = row.Cells[0].Value.ToString();
-                Order_textBox_ClientName.Text = ClientItem.FullName;
-                Order_textBox_ServiceName.Text = row.Cells[2].Value.ToString();
-                Order_textBox_Descript.Text = row.Cells[3].Value.ToString();
-                Order_textBox_OrderDate.Text = row.Cells[4].Value.ToString();
-                Order_textBox_Execution.Text = row.Cells[5].Value.ToString();
-                Order_textBox_Progress.Text = row.Cells[6].Value.ToString();
+                SelectedRow = e.RowIndex;
+                DataGridViewRow row = Orders_dataGridView.Rows[SelectedRow];
+                int clientID = Convert.ToInt32(row.Cells[1].Value.ToString());
+                ClientLogic CL = new ClientLogic();
+                var ClientItem = await CL.Get(clientID);
+                if (e.RowIndex >= 0)
+                {
+                    Order_textBox_ID.Text = row.Cells[0].Value.ToString();
+                    Order_textBox_ClientName.Text = ClientItem.FullName;
+                    Order_textBox_ServiceName.Text = row.Cells[2].Value.ToString();
+                    Order_textBox_Descript.Text = row.Cells[3].Value.ToString();
+                    Order_textBox_OrderDate.Text = row.Cells[4].Value.ToString();
+                    Order_textBox_Execution.Text = row.Cells[5].Value.ToString();
+                    Order_textBox_Progress.Text = row.Cells[6].Value.ToString();
+                }
             }
         }
         private void Client_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            SelectedRow = e.RowIndex;
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = Client_dataGridView.Rows[SelectedRow];
-                Client_textBox_ID.Text = row.Cells[0].Value.ToString();
-                Client_textBox_FullName.Text = row.Cells[1].Value.ToString();
-                Client_textBox_Adress.Text = row.Cells[2].Value.ToString();
-                Client_textBox_Telephone.Text = row.Cells[3].Value.ToString();
+                SelectedRow = e.RowIndex;
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = Client_dataGridView.Rows[SelectedRow];
+                    Client_textBox_ID.Text = row.Cells[0].Value.ToString();
+                    Client_textBox_FullName.Text = row.Cells[1].Value.ToString();
+                    Client_textBox_Adress.Text = row.Cells[2].Value.ToString();
+                    Client_textBox_Telephone.Text = row.Cells[3].Value.ToString();
+                }
             }
         }
         private void Serv_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            SelectedRow = e.RowIndex;
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = Serv_dataGridView.Rows[SelectedRow];
-                Serv_textBox_ServiceName.Text = row.Cells[0].Value.ToString();
-                Serv_textBox_Price.Text = row.Cells[1].Value.ToString();
-                Serv_textBox_ID.Text = row.Cells[2].Value.ToString();
+                SelectedRow = e.RowIndex;
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = Serv_dataGridView.Rows[SelectedRow];
+                    Serv_textBox_ServiceName.Text = row.Cells[0].Value.ToString();
+                    Serv_textBox_Price.Text = row.Cells[1].Value.ToString();
+                    Serv_textBox_ID.Text = row.Cells[2].Value.ToString();
+                }
             }
         }
         private void Document_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            SelectedRow = e.RowIndex;
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = Document_dataGridView.Rows[SelectedRow];
-                Document_textBox_ID.Text = row.Cells[0].Value.ToString();
-                Document_textBox_ClientID.Text = row.Cells[1].Value.ToString();
-                Document_textBox_ClientName.Text = row.Cells[2].Value.ToString();
-                Document_textBox_OrderID.Text = row.Cells[3].Value.ToString();
-                Document_textBox_Total.Text = row.Cells[4].Value.ToString();
-                Document_textBox_DocumentDate.Text = row.Cells[5].Value.ToString();
+                SelectedRow = e.RowIndex;
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = Document_dataGridView.Rows[SelectedRow];
+                    Document_textBox_ID.Text = row.Cells[0].Value.ToString();
+                    Document_textBox_ClientID.Text = row.Cells[1].Value.ToString();
+                    Document_textBox_ClientName.Text = row.Cells[2].Value.ToString();
+                    Document_textBox_OrderID.Text = row.Cells[3].Value.ToString();
+                    Document_textBox_Total.Text = row.Cells[4].Value.ToString();
+                    Document_textBox_DocumentDate.Text = row.Cells[5].Value.ToString();
+                }
             }
         }
 
