@@ -18,47 +18,45 @@ namespace RepairAPPAPI
             textBox_ClientName.DropDownStyle = ComboBoxStyle.DropDownList;
             textBox_ServiceName.DropDownStyle = ComboBoxStyle.DropDownList;
             textBox_Progress.DropDownStyle = ComboBoxStyle.DropDownList;
-            
         }
 
         private async void CreateOrders()
         {
             var ClientID = _ClientID;
-            var ServiceName = textBox_ServiceName.Text;
+            var ServiceName = textBox_ServiceName;
             var Descript = textBox_Description.Text;
             var OrderDate = DateTime.Now;
-            var Execution = Convert.ToDateTime(textBox_Execution.Text);
-            var Progress = textBox_Progress.Text;
+            var Execution = textBox_Execution;
+            var Progress = textBox_Progress;
 
-            if (ClientID.Equals("") &&
-               ServiceName.Equals("") &&
-               Descript.Equals("") &&
-               Execution.Equals("") &&
-               Progress.Equals(""))
-            {
-                MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
-                    "ОШИБКА!",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                this.Close();
-            }
-            else
+            if (ClientID > 0 &&
+                ServiceName.SelectedIndex > -1 &&
+                !Descript.Equals("") &&
+                Execution.MaskFull &&
+                Progress.SelectedIndex > -1)
             {
                 using OrdersLogic OL = new OrdersLogic();
                 await OL.Create(new OrdersModel()
                 {
                     ClientID = ClientID,
-                    ServiceName = ServiceName,
+                    ServiceName = ServiceName.Text,
                     Descript = Descript,
                     OrderDate = OrderDate,
-                    Execution = Execution,
-                    Progress = Progress
+                    Execution = Convert.ToDateTime(Execution.Text),
+                    Progress = Progress.Text
                 });
                 MessageBox.Show("Запись создана успешно", "Сохранение",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
                 this.Close();
+                
+            }
+            else
+            {
+                MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
+                    "ОШИБКА!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
         }
 

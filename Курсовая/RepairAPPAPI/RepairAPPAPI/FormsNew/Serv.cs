@@ -19,17 +19,9 @@ namespace RepairAPPAPI
         private async void CreateServs()
         {
             var ServiceName = textBox_ServiceName.Text;
-            var Price = Convert.ToDecimal(textBox_Price.Text);
+            var Price = textBox_Price.Text;
 
-            if (ServiceName.Equals("") && Price.Equals(""))
-            {
-                MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
-                   "ОШИБКА!",
-                   MessageBoxButtons.OK,
-                   MessageBoxIcon.Warning);
-                this.Close();
-            }
-            else
+            if (ServiceName.Length > 0 && Price.Length > 0)
             {
                 using ServLogic SL = new ServLogic();
                 IEnumerable<ServModel> list = await SL.GetAll();
@@ -43,13 +35,20 @@ namespace RepairAPPAPI
                     await SL.Create(new ServModel()
                     {
                         ServiceName = ServiceName,
-                        Price = Price
+                        Price = Convert.ToDecimal(Price)
                     });
                     MessageBox.Show("Запись создана успешно", "Сохранение",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
                     this.Close();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
+                   "ОШИБКА!",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Warning);
             }
         }
 

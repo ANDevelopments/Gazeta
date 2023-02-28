@@ -21,20 +21,11 @@ namespace RepairAPPAPI
         {
             var FullName = textBox_FullName.Text;
             var Adress = textBox_Adress.Text;
-            var Telephone = textBox_Telephone.Text;
+            var Telephone = textBox_Telephone;
 
-            if (FullName.Equals("") &&
-               Adress.Equals("") &&
-               Telephone.Equals(""))
-            {
-                MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
-                   "ОШИБКА!",
-                   MessageBoxButtons.OK,
-                   MessageBoxIcon.Warning);
-
-                this.Close();
-            }
-            else
+            if (FullName.Length > 0 &&
+                Adress.Length > 0 &&
+                Telephone.MaskFull)
             {
                 using ClientLogic CL = new ClientLogic();
                 IEnumerable<ClientModel> list = await CL.GetAll();
@@ -49,13 +40,20 @@ namespace RepairAPPAPI
                     {
                         FullName = FullName,
                         Adress = Adress,
-                        Telephone = Telephone
+                        Telephone = Telephone.Text
                     });
                     MessageBox.Show("Запись создана успешно", "Сохранение",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
                     this.Close();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
+                   "ОШИБКА!",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Warning);
             }
         }
 

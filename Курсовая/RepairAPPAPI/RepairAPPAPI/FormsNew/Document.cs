@@ -24,42 +24,27 @@ namespace RepairAPPAPI
             var Total = Convert.ToDecimal(textBox_Total.Text);
             var DocumentDate = DateTime.Now;
 
-            if (ClientID.Equals("") &&
-               ClientName.Equals("") &&
-               OrderID.Equals("") &&
-               Total.Equals(""))
+            using DocumentLogic DL = new DocumentLogic();
+            IEnumerable<DocumentModel> list = await DL.GetAll();
+            var container = list.FirstOrDefault(c => c.OrderID == OrderID);
+            if (container != null)
             {
-                MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
-                   "ОШИБКА!",
-                   MessageBoxButtons.OK,
-                   MessageBoxIcon.Warning);
-
-                this.Close();
+                MessageBox.Show("По данному номеру заказа уже существует документ.", "Запись не может быть создана!");
             }
             else
             {
-                using DocumentLogic DL = new DocumentLogic();
-                IEnumerable<DocumentModel> list = await DL.GetAll();
-                var container = list.FirstOrDefault(c => c.OrderID == OrderID);
-                if (container != null)
+                await DL.Create(new DocumentModel()
                 {
-                    MessageBox.Show("По данному номеру заказа уже существует документ.", "Запись не может быть создана!");
-                }
-                else
-                {
-                    await DL.Create(new DocumentModel()
-                    {
-                        ClientID = ClientID,
-                        ClientName = ClientName,
-                        OrderID = OrderID,
-                        Total = Total,
-                        DocumentDate = DocumentDate
-                    });
-                    MessageBox.Show("Запись создана успешно", "Сохранение",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
-                    this.Close();
-                }
+                    ClientID = ClientID,
+                    ClientName = ClientName,
+                    OrderID = OrderID,
+                    Total = Total,
+                    DocumentDate = DocumentDate
+                });                 
+                MessageBox.Show("Запись создана успешно", "Сохранение",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                this.Close();
             }
         }
 
@@ -80,7 +65,17 @@ namespace RepairAPPAPI
 
         private void button_Save_Click(object sender, EventArgs e)
         {
-            CreateDocument();
+            if (textBox_OrderID.SelectedIndex > -1 && textBox_Total.Text.Length > 0)
+            {
+                CreateDocument();
+            }
+            else
+            {
+                MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
+                   "ОШИБКА!",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Warning);
+            }
         }
 
         private void button_Clear_Click(object sender, EventArgs e)
