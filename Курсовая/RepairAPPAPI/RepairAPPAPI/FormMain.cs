@@ -464,7 +464,11 @@ namespace RepairAPPAPI
         //Кнопки "Изменить"
         private void Order_button_Alter_Click(object sender, EventArgs e)
         {
-            if (Orders_dataGridView.Rows.Count > 0)
+            if (Order_textBox_ID.Text.Equals(""))
+            {
+                MessageBox.Show("Выберите запись");
+            }
+            else
             {
                 UpdateOrders();
             }
@@ -472,7 +476,11 @@ namespace RepairAPPAPI
         }
         private void Client_button_Alter_Click(object sender, EventArgs e)
         {
-            if (Client_dataGridView.Rows.Count > 0)
+            if (Client_textBox_ID.Text.Equals(""))
+            {
+                MessageBox.Show("Выберите запись");
+            }
+            else
             {
                 UpdateClients();
             }
@@ -480,7 +488,11 @@ namespace RepairAPPAPI
         }
         private void Serv_button_Alter_Click(object sender, EventArgs e)
         {
-            if (Serv_dataGridView.Rows.Count > 0)
+            if (Serv_textBox_ID.Text.Equals(""))
+            {
+                MessageBox.Show("Выберите запись");
+            }
+            else
             {
                 UpdateServs();
             }
@@ -488,7 +500,11 @@ namespace RepairAPPAPI
         }
         private void Document_button_Alter_Click(object sender, EventArgs e)
         {
-            if (Document_dataGridView.Rows.Count > 0)
+            if (Document_textBox_ID.Text.Equals(""))
+            {
+                MessageBox.Show("Выберите запись");
+            }
+            else
             {
                 UpdateDocuments();
             }
@@ -498,7 +514,11 @@ namespace RepairAPPAPI
         //Кнопки "Удалить"
         private void Order_button_Delete_Click(object sender, EventArgs e)
         {
-            if (Orders_dataGridView.Rows.Count > 0)
+            if (Order_textBox_ID.Text.Equals(""))
+            {
+                MessageBox.Show("Выберите запись");
+            }
+            else
             {
                 DeleteOrders();
             }
@@ -506,7 +526,11 @@ namespace RepairAPPAPI
         }
         private void Client_button_Delete_Click(object sender, EventArgs e)
         {
-            if (Client_dataGridView.Rows.Count > 0)
+            if (Client_textBox_ID.Text.Equals(""))
+            {
+                MessageBox.Show("Выберите запись");
+            }
+            else
             {
                 DeleteClients();
             }
@@ -514,7 +538,11 @@ namespace RepairAPPAPI
         }
         private void Serv_button_Delete_Click(object sender, EventArgs e)
         {
-            if (Serv_dataGridView.Rows.Count > 0)
+            if (Serv_textBox_ID.Text.Equals(""))
+            {
+                MessageBox.Show("Выберите запись");
+            }
+            else
             {
                 DeleteServs();
             }
@@ -522,7 +550,11 @@ namespace RepairAPPAPI
         }
         private void Document_button_Delete_Click(object sender, EventArgs e)
         {
-            if (Document_dataGridView.Rows.Count > 0)
+            if (Document_textBox_ID.Text.Equals(""))
+            {
+                MessageBox.Show("Выберите запись");
+            }
+            else
             {
                 DeleteDocuments();
             }
