@@ -23,30 +23,35 @@ namespace RepairAPPAPI
             var Adress = textBox_Adress.Text;
             var Telephone = textBox_Telephone;
 
-            if (FullName.Length > 0 &&
-                Adress.Length > 0 &&
-                Telephone.MaskFull)
+            using ClientLogic CL = new ClientLogic();
+            IEnumerable<ClientModel> list = await CL.GetAll();
+            var container = list.FirstOrDefault(c => c.FullName == FullName);
+            if (container != null)
             {
-                using ClientLogic CL = new ClientLogic();
-                IEnumerable<ClientModel> list = await CL.GetAll();
-                var container = list.FirstOrDefault(c => c.FullName == FullName);
-                if (container != null)
+                MessageBox.Show("Такой клиент уже существует", "Запись не может быть создана!");
+            }
+            else
+            {
+                await CL.Create(new ClientModel()
                 {
-                    MessageBox.Show("Такой клиент уже существует", "Запись не может быть создана!");
-                }
-                else
-                {
-                    await CL.Create(new ClientModel()
-                    {
-                        FullName = FullName,
-                        Adress = Adress,
-                        Telephone = Telephone.Text
-                    });
-                    MessageBox.Show("Запись создана успешно", "Сохранение",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
-                    this.Close();
-                }
+                    FullName = FullName,
+                    Adress = Adress,
+                    Telephone = Telephone.Text
+                });
+                MessageBox.Show("Запись создана успешно", "Сохранение",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                this.Close();
+            }
+        }
+
+        private void button_Save_Click(object sender, EventArgs e)
+        {
+            if(textBox_FullName.Text.Length > 0 &&
+               textBox_Adress.Text.Length > 0 &&
+               textBox_Telephone.MaskFull)
+            {
+                CreateClient();
             }
             else
             {
@@ -55,11 +60,6 @@ namespace RepairAPPAPI
                    MessageBoxButtons.OK,
                    MessageBoxIcon.Warning);
             }
-        }
-
-        private void button_Save_Click(object sender, EventArgs e)
-        {
-            CreateClient();
         }
         private void button_Clear_Click(object sender, EventArgs e)
         {

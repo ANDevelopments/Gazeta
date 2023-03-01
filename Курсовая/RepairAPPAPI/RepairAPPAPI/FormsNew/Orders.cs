@@ -1,6 +1,7 @@
 ﻿using RepairAPPAPI.Data.Logic;
 using RepairAPPAPI.Data.Models;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -29,35 +30,20 @@ namespace RepairAPPAPI
             var Execution = textBox_Execution;
             var Progress = textBox_Progress;
 
-            if (ClientID > 0 &&
-                ServiceName.SelectedIndex > -1 &&
-                !Descript.Equals("") &&
-                Execution.MaskFull &&
-                Progress.SelectedIndex > -1)
+            using OrdersLogic OL = new OrdersLogic();
+            await OL.Create(new OrdersModel()
             {
-                using OrdersLogic OL = new OrdersLogic();
-                await OL.Create(new OrdersModel()
-                {
-                    ClientID = ClientID,
-                    ServiceName = ServiceName.Text,
-                    Descript = Descript,
-                    OrderDate = OrderDate,
-                    Execution = Convert.ToDateTime(Execution.Text),
-                    Progress = Progress.Text
-                });
-                MessageBox.Show("Запись создана успешно", "Сохранение",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-                this.Close();
-                
-            }
-            else
-            {
-                MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
-                    "ОШИБКА!",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-            }
+                ClientID = ClientID,
+                ServiceName = ServiceName.Text,
+                Descript = Descript,
+                OrderDate = OrderDate,
+                Execution = Convert.ToDateTime(Execution.Text),
+                Progress = Progress.Text
+            });
+            MessageBox.Show("Запись создана успешно", "Сохранение",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+            this.Close();   
         }
 
         private async void GetClients()
@@ -84,7 +70,22 @@ namespace RepairAPPAPI
 
         private void button_Save_Click(object sender, EventArgs e)
         {
-            CreateOrders();
+            if(_ClientID > 0 &&
+               textBox_ServiceName.SelectedIndex > -1 &&
+               !textBox_Description.Text.Equals("") &&
+               textBox_Execution.MaskFull &&
+               textBox_Progress.SelectedIndex > -1)
+            {
+                CreateOrders();
+            }
+            else
+            {
+
+                MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
+                    "ОШИБКА!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
         }
 
         private void button_Clear_Click(object sender, EventArgs e)

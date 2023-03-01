@@ -117,45 +117,39 @@ namespace RepairAPPAPI
         //DELETE
         private async void DeleteOrders()
         {
-            if (MessageBox.Show("Удалить запись?", "Сообщение",
-            MessageBoxButtons.YesNo) == DialogResult.Yes)
+            var row = Orders_dataGridView.Rows[SelectedRow].DataBoundItem as OrdersModel;
+            DocumentLogic DL = new DocumentLogic();
+            IEnumerable<DocumentModel> doclist = await DL.GetAll();
+            var container = doclist.FirstOrDefault(c => c.OrderID == row.ID);
+            if (container != null)
             {
-                var row = Orders_dataGridView.Rows[SelectedRow].DataBoundItem as OrdersModel;
-                DocumentLogic DL = new DocumentLogic();
-                IEnumerable<DocumentModel> doclist = await DL.GetAll();
-                var container = doclist.FirstOrDefault(c => c.OrderID == row.ID);
-                if (container != null)
-                {
-                    MessageBox.Show("Невозможно удалить данный заказ, т.к. на него ссылается документ", "WARNING");
-                }
-                {
-                    using OrdersLogic OL = new OrdersLogic();
-                    await OL.Delete(row.ID);
-                    GetOrders();
-                }
+                MessageBox.Show("Невозможно удалить данный заказ, т.к. на него ссылается документ", "WARNING");
+            }
+            else
+            {
+                using OrdersLogic OL = new OrdersLogic();
+                await OL.Delete(row.ID);
+                GetOrders();
+                ClearOrders();
             }
         }
         private async void DeleteClients()
         {
-            if (MessageBox.Show("Удалить запись?", "Сообщение",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
+            var row = Client_dataGridView.Rows[SelectedRow].DataBoundItem as ClientModel;
+            OrdersLogic OL = new OrdersLogic();
+            IEnumerable<OrdersModel> orderslist = await OL.GetAll();
+            var container = orderslist.FirstOrDefault(c => c.ClientID == row.ID);
+            if (container != null)
             {
-                var row = Client_dataGridView.Rows[SelectedRow].DataBoundItem as ClientModel;
-                OrdersLogic OL = new OrdersLogic();
-                IEnumerable<OrdersModel> orderslist = await OL.GetAll();
-                var container = orderslist.FirstOrDefault(c => c.ClientID == row.ID);
-                if (container != null)
-                {
-                    MessageBox.Show("Невозможно удалить данного клиента, т.к. на него ссылается заказ", "WARNING");
-                }
-                else
-                {
-                    using ClientLogic CL = new ClientLogic();
-                    await CL.Delete(row.ID);
-                    GetClients();
-                }
+                MessageBox.Show("Невозможно удалить данного клиента, т.к. на него ссылается заказ", "WARNING");
             }
-          
+            else
+            {
+                using ClientLogic CL = new ClientLogic();
+                await CL.Delete(row.ID);
+                GetClients();
+                ClearClients();
+            }
         }
         private async void DeleteServs()
         {
@@ -174,6 +168,7 @@ namespace RepairAPPAPI
                     using ServLogic SL = new ServLogic();
                     await SL.Delete(row.ID);
                     GetServs();
+                    ClearServs();
                 }
             }
             
@@ -187,6 +182,7 @@ namespace RepairAPPAPI
                 using DocumentLogic DL = new DocumentLogic();
                 await DL.Delete(row.ID);
                 GetDocuments();
+                ClearDocuments();
             }
         }
 
@@ -201,26 +197,16 @@ namespace RepairAPPAPI
             var Execution = Convert.ToDateTime(Order_textBox_Execution.Text);
             var Progress = Order_textBox_Progress.Text;
 
-            if (ClientID.Equals("") &&
-               ServiceName.Equals("") &&
-               Descript.Equals("") &&
-               Execution.Equals("") &&
-               Progress.Equals(""))
+            
+            using OrdersLogic OL = new OrdersLogic();
+            await OL.Update(ID, new OrdersModel()
             {
-                MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
-                "ОШИБКА!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                using OrdersLogic OL = new OrdersLogic();
-                await OL.Update(ID, new OrdersModel()
-                {
-                    ID = ID, ClientID = ClientID,
-                    ServiceName = ServiceName, Descript = Descript, OrderDate = OrderDate,
-                    Execution = Execution, Progress = Progress
-                });
-                GetOrders();
-            }
+                ID = ID, ClientID = ClientID,
+                ServiceName = ServiceName, Descript = Descript, OrderDate = OrderDate,
+                Execution = Execution, Progress = Progress
+            });
+            GetOrders();
+            
         }
         private async void UpdateClients()
         {
@@ -229,23 +215,14 @@ namespace RepairAPPAPI
             var Adress = Client_textBox_Adress.Text;
             var Telephone = Client_textBox_Telephone.Text;
 
-            if (FullName.Equals("") &&
-               Adress.Equals("") &&
-               Telephone.Equals(""))
+            using ClientLogic CL = new ClientLogic();
+            await CL.Update(ID, new ClientModel()
             {
-                MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
-                "ОШИБКА!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                using ClientLogic CL = new ClientLogic();
-                await CL.Update(ID, new ClientModel()
-                {
-                    ID = ID, FullName = FullName,
-                    Adress = Adress, Telephone= Telephone
-                });
-                GetClients();
-            }
+                ID = ID, FullName = FullName,
+                Adress = Adress, Telephone= Telephone
+            });
+            GetClients();
+            
         }
         private async void UpdateServs()
         {
@@ -253,20 +230,12 @@ namespace RepairAPPAPI
             var Price = Convert.ToDecimal(Serv_textBox_Price.Text);
             var ID = Convert.ToInt32(Serv_textBox_ID.Text);
 
-            if (Price.Equals(""))
+            using ServLogic SL = new ServLogic();
+            await SL.Update(ID, new ServModel()
             {
-                MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
-                "ОШИБКА!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                using ServLogic SL = new ServLogic();
-                await SL.Update(ID, new ServModel()
-                {
-                    ServiceName = ServiceName, Price = Price, ID = ID
-                });
-                GetServs();
-            }
+                ServiceName = ServiceName, Price = Price, ID = ID
+            });
+            GetServs();
         }
         private async void UpdateDocuments()
         {
@@ -277,24 +246,13 @@ namespace RepairAPPAPI
             var Total = Convert.ToDecimal(Document_textBox_Total.Text);
             var DocumentDate = Convert.ToDateTime(Document_textBox_DocumentDate.Text);
 
-            if (ClientID.Equals("") &&
-                    ClientName.Equals("") &&
-                    OrderID.Equals("") &&
-                    Total.Equals(""))
+            using DocumentLogic DL = new DocumentLogic();
+            await DL.Update(ID, new DocumentModel()
             {
-                MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
-                "ОШИБКА!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                using DocumentLogic DL = new DocumentLogic();
-                await DL.Update(ID, new DocumentModel()
-                {
-                    ID = ID, ClientID = ClientID, ClientName = ClientName,
-                    OrderID = OrderID, Total = Total, DocumentDate = DocumentDate
-                });
-                GetDocuments();
-            }
+                ID = ID, ClientID = ClientID, ClientName = ClientName,
+                OrderID = OrderID, Total = Total, DocumentDate = DocumentDate
+            });
+            GetDocuments();
         }
 
         //Поиск в DataGridView
@@ -470,9 +428,16 @@ namespace RepairAPPAPI
             }
             else
             {
-                UpdateOrders();
+                if(Order_textBox_Descript.Text.Length > 0 && Order_textBox_Execution.MaskFull)
+                {
+                    UpdateOrders();
+                }
+                else
+                {
+                    MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
+                                    "ОШИБКА!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            ClearOrders();
         }
         private void Client_button_Alter_Click(object sender, EventArgs e)
         {
@@ -482,9 +447,18 @@ namespace RepairAPPAPI
             }
             else
             {
-                UpdateClients();
+                if(Client_textBox_FullName.Text.Length > 0 &&
+                   Client_textBox_Adress.Text.Length > 0 &&
+                   Client_textBox_Telephone.MaskFull)
+                {
+                    UpdateClients();
+                }
+                else
+                {
+                    MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
+                                    "ОШИБКА!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            ClearClients();
         }
         private void Serv_button_Alter_Click(object sender, EventArgs e)
         {
@@ -494,9 +468,16 @@ namespace RepairAPPAPI
             }
             else
             {
-                UpdateServs();
+                if(Serv_textBox_Price.Text.Length > 0)
+                {
+                    UpdateServs();
+                }
+                else
+                {
+                    MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
+                                    "ОШИБКА!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            ClearServs();
         }
         private void Document_button_Alter_Click(object sender, EventArgs e)
         {
@@ -506,9 +487,16 @@ namespace RepairAPPAPI
             }
             else
             {
-                UpdateDocuments();
+                if(Document_textBox_Total.Text.Length > 0)
+                {
+                    UpdateDocuments();
+                }
+                else
+                {
+                    MessageBox.Show("Запись не может быть сохранена, т.к. отсутствуют значения в некоторых полях",
+                                    "ОШИБКА!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            ClearDocuments();
         }
 
         //Кнопки "Удалить"
@@ -520,9 +508,12 @@ namespace RepairAPPAPI
             }
             else
             {
-                DeleteOrders();
+                if (MessageBox.Show("Удалить запись?", "Сообщение",
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    DeleteOrders();
+                }
             }
-            ClearOrders();
         }
         private void Client_button_Delete_Click(object sender, EventArgs e)
         {
@@ -532,9 +523,12 @@ namespace RepairAPPAPI
             }
             else
             {
-                DeleteClients();
+                if (MessageBox.Show("Удалить запись?", "Сообщение",
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    DeleteClients();
+                }
             }
-            ClearClients();
         }
         private void Serv_button_Delete_Click(object sender, EventArgs e)
         {
@@ -544,9 +538,12 @@ namespace RepairAPPAPI
             }
             else
             {
-                DeleteServs();
+                if (MessageBox.Show("Удалить запись?", "Сообщение",
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    DeleteServs();
+                }
             }
-            ClearServs();
         }
         private void Document_button_Delete_Click(object sender, EventArgs e)
         {
@@ -556,9 +553,12 @@ namespace RepairAPPAPI
             }
             else
             {
-                DeleteDocuments();
+                if (MessageBox.Show("Удалить запись?", "Сообщение",
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    DeleteDocuments();
+                }
             }
-            ClearDocuments();
         }
 
         //Кнопки "Новая запись"

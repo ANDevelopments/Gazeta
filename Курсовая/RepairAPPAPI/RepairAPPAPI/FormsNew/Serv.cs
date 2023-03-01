@@ -21,27 +21,32 @@ namespace RepairAPPAPI
             var ServiceName = textBox_ServiceName.Text;
             var Price = textBox_Price.Text;
 
-            if (ServiceName.Length > 0 && Price.Length > 0)
+            using ServLogic SL = new ServLogic();
+            IEnumerable<ServModel> list = await SL.GetAll();
+            var container = list.FirstOrDefault(c => c.ServiceName == ServiceName);
+            if (container != null)
             {
-                using ServLogic SL = new ServLogic();
-                IEnumerable<ServModel> list = await SL.GetAll();
-                var container = list.FirstOrDefault(c => c.ServiceName == ServiceName);
-                if (container != null)
+                MessageBox.Show("Услуга с таким названием уже существует", "Запись не может быть создана!");
+            }
+            else
+            {
+                await SL.Create(new ServModel()
                 {
-                    MessageBox.Show("Услуга с таким названием уже существует", "Запись не может быть создана!");
-                }
-                else
-                {
-                    await SL.Create(new ServModel()
-                    {
-                        ServiceName = ServiceName,
-                        Price = Convert.ToDecimal(Price)
-                    });
-                    MessageBox.Show("Запись создана успешно", "Сохранение",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
-                    this.Close();
-                }
+                    ServiceName = ServiceName,
+                    Price = Convert.ToDecimal(Price)
+                });
+                MessageBox.Show("Запись создана успешно", "Сохранение",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                this.Close();
+            }
+        }
+
+        private void button_Save_Click(object sender, EventArgs e)
+        {
+            if(textBox_ServiceName.Text.Length > 0 && textBox_Price.Text.Length > 0)
+            {
+                CreateServs();
             }
             else
             {
@@ -50,11 +55,6 @@ namespace RepairAPPAPI
                    MessageBoxButtons.OK,
                    MessageBoxIcon.Warning);
             }
-        }
-
-        private void button_Save_Click(object sender, EventArgs e)
-        {
-            CreateServs();
         }
 
         private void button_Clear_Click(object sender, EventArgs e)

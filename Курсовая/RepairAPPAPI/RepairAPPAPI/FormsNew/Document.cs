@@ -48,11 +48,6 @@ namespace RepairAPPAPI
             }
         }
 
-        private async void GetClients()
-        {
-            ClientLogic CL = new ClientLogic();
-            IEnumerable<ClientModel> list = await CL.GetAll();
-        }
         private async void GetOrders()
         {
             OrdersLogic OL = new OrdersLogic();
