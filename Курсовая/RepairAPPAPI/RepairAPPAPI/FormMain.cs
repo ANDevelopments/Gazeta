@@ -153,9 +153,6 @@ namespace RepairAPPAPI
         }
         private async void DeleteServs()
         {
-            if (MessageBox.Show("Удалить запись?", "Сообщение",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
                 var row = Serv_dataGridView.Rows[SelectedRow].DataBoundItem as ServModel;
                 OrdersLogic OL = new OrdersLogic();
                 IEnumerable<OrdersModel> orderslist = await OL.GetAll();
@@ -170,20 +167,14 @@ namespace RepairAPPAPI
                     GetServs();
                     ClearServs();
                 }
-            }
-            
         }
         private async void DeleteDocuments()
         {   
-            if (MessageBox.Show("Удалить запись?", "Сообщение",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                var row = Document_dataGridView.Rows[SelectedRow].DataBoundItem as DocumentModel;
-                using DocumentLogic DL = new DocumentLogic();
-                await DL.Delete(row.ID);
-                GetDocuments();
-                ClearDocuments();
-            }
+            var row = Document_dataGridView.Rows[SelectedRow].DataBoundItem as DocumentModel;
+            using DocumentLogic DL = new DocumentLogic();
+            await DL.Delete(row.ID);
+            GetDocuments();
+            ClearDocuments();
         }
 
         //UPDATE
