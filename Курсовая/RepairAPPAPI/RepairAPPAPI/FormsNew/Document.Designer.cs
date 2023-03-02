@@ -122,6 +122,7 @@
             this.textBox_Total.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox_Total.Location = new System.Drawing.Point(219, 202);
             this.textBox_Total.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox_Total.MaxLength = 10;
             this.textBox_Total.Name = "textBox_Total";
             this.textBox_Total.Size = new System.Drawing.Size(236, 27);
             this.textBox_Total.TabIndex = 3;

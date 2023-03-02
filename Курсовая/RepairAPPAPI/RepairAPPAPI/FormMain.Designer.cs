@@ -855,6 +855,7 @@ namespace RepairAPPAPI
             // 
             this.Serv_textBox_Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Serv_textBox_Price.Location = new System.Drawing.Point(211, 81);
+            this.Serv_textBox_Price.MaxLength = 10;
             this.Serv_textBox_Price.Name = "Serv_textBox_Price";
             this.Serv_textBox_Price.Size = new System.Drawing.Size(413, 24);
             this.Serv_textBox_Price.TabIndex = 4;
@@ -1091,6 +1092,7 @@ namespace RepairAPPAPI
             // 
             this.Document_textBox_Total.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Document_textBox_Total.Location = new System.Drawing.Point(211, 137);
+            this.Document_textBox_Total.MaxLength = 10;
             this.Document_textBox_Total.Name = "Document_textBox_Total";
             this.Document_textBox_Total.Size = new System.Drawing.Size(413, 24);
             this.Document_textBox_Total.TabIndex = 4;

@@ -98,6 +98,7 @@
             this.textBox_Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox_Price.Location = new System.Drawing.Point(219, 120);
             this.textBox_Price.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox_Price.MaxLength = 10;
             this.textBox_Price.Name = "textBox_Price";
             this.textBox_Price.Size = new System.Drawing.Size(236, 27);
             this.textBox_Price.TabIndex = 1;
