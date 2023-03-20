@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NavHostDemo</string>
+    <string name="app_name">Газета</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="nav1">К фрагменту 1</string>
@@ -10,4 +10,5 @@
     <string name="not_enough_length">Сообщение меньше 3 символов!</string>
     <string name="attestation_one">Это задание на первую аттестацию!\n\nСделайте возможность поделиться текстом, переданным в этот фрагмент в качестве параметра.</string>
     <string name="share">Поделиться</string>
+    <string name="Header">Последние события</string>
 </resources>

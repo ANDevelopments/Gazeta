@@ -4,35 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/mainFragment">
-
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.navhostdemo.MainFragment"
-        android:label="@string/nav_main"
+        android:name="com.example.navhostdemo.MyUI.MainFragment"
+        android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_fragmentOne"
-            app:destination="@id/fragmentOne">
-            <argument
-                android:name="message"
-                app:argType="string"
-                app:nullable="false" />
-        </action>
+            android:id="@+id/action_mainFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/fragmentOne"
-        android:name="com.example.navhostdemo.FragmentOne"
-        android:label="Первый фрагмент"
-        tools:layout="@layout/fragment_one" >
-        <argument
-            android:name="message"
-            app:argType="string"
-            app:nullable="false" />
-    </fragment>
+        android:id="@+id/detailsFragment"
+        android:name="com.example.navhostdemo.MyUI.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
     <fragment
-        android:id="@+id/favoritesFragment"
-        android:name="com.example.navhostdemo.FavoritesFragment"
-        android:label="@string/nav_favorites"
-        tools:layout="@layout/fragment_favorites"
-        />
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.navhostdemo.MyUI.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
 </navigation>

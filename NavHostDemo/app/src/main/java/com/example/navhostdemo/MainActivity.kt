@@ -2,31 +2,28 @@ package com.example.navhostdemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentContainerView
-import androidx.navigation.NavHostController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.navhostdemo.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_main.*
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    private var _binding: ActivityMainBinding? = null
+    private val mBinding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation_tag)
-        val appConfig = AppBarConfiguration(
-            setOf(
-                R.id.mainFragment,
-                R.id.favoritesFragment
-            )
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(R.layout.fragment_main)
+        setContentView(mBinding.root)
+        bottom_nav_menu.setupWithNavController(
+            navController = nav_host_fragment.findNavController()
         )
-        val navHost = supportFragmentManager.findFragmentById(R.id.fragment_container_view_tag)
-        navHost?.let {
-            val nav = navHost.findNavController()
-            bottomNav.setupWithNavController(nav)
-            setupActionBarWithNavController(nav, appConfig)
-        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
