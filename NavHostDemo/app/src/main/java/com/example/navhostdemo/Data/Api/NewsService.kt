@@ -9,7 +9,9 @@ import retrofit2.Response as Response
 
 interface NewsService {
 
-    @GET("v2/top-headlines?country=ru")
+    // "v2/top-headlines?country=us" "v2/everything?q=Челябинск&sortBy=publishedAt"
+
+    @GET("v2/everything?q=Челябинск&sortBy=publishedAt")
     suspend fun getHeadlines(
         @Query("page") page: Int = 1,
         @Query("apiKey") apiKey: String = API_KEY

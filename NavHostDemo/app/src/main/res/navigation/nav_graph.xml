@@ -17,7 +17,11 @@
         android:id="@+id/detailsFragment"
         android:name="com.example.navhostdemo.MyUI.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="article"
+            app:argType="com.example.navhostdemo.Models.Article" />
+    </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.example.navhostdemo.MyUI.FavoriteFragment"
