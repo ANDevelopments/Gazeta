@@ -16,4 +16,5 @@ class NewsRepository @Inject constructor(
     suspend fun addToFavorite(article: Article) = articleDao.insert(article = article)
 
     suspend fun deleteFromFavorite(article: Article) = articleDao.delete(article = article)
+
 }

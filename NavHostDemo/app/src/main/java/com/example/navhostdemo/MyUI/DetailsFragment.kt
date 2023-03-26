@@ -16,6 +16,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.navhostdemo.R
 import com.example.navhostdemo.databinding.FragmentDetailsBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_details.*
 
@@ -66,6 +67,15 @@ class DetailsFragment : Fragment() {
 
             mBinding.iconFavorite.setOnClickListener {
                 viewModel.saveFavoriteArticle(article)
+                Snackbar.make(view, "Новость сохранена", Snackbar.LENGTH_SHORT).show()
+            }
+
+            mBinding.iconShare.setOnClickListener {
+                val intent= Intent()
+                intent.action=Intent.ACTION_SEND
+                intent.putExtra(Intent.EXTRA_TEXT,article.url)
+                intent.type="text/plain"
+                startActivity(Intent.createChooser(intent,"Share To:"))
             }
         }
     }

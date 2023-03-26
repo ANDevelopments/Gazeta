@@ -13,4 +13,5 @@
     <string name="Header">Актуальные новости</string>
     <string name="description">Подробнее</string>
     <string name="visit_site">Посетить сайт</string>
+    <string name="Fav">Избранное</string>
 </resources>
