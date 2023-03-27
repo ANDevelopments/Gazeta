@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.navhostdemo.Models.Article
 import com.example.navhostdemo.R
+import com.example.navhostdemo.databinding.FragmentMainBinding
 import kotlinx.android.synthetic.main.item_article.view.*
 
 class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {

@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.navhostdemo.Data.Api.NewsRepository
 import com.example.navhostdemo.R
 import com.example.navhostdemo.databinding.FragmentFavoriteBinding
 import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.coroutines.job
 
 class FavoriteFragment : Fragment() {
 
@@ -37,10 +39,8 @@ class FavoriteFragment : Fragment() {
 //            val bundle = bundleOf("article" to it)
 //            view.findNavController().navigate(
 //                R.id.action_favoriteFragment_to_detailsFragment,
-//                bundle
-//            )
+//                bundle)
 //        }
-//
 //    }
 //    private fun initAdapter() {
 //        newsAdapter = NewsAdapter()
@@ -50,3 +50,4 @@ class FavoriteFragment : Fragment() {
 //        }
 //    }
 }
+
