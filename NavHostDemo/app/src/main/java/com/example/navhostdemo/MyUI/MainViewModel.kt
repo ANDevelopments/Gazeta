@@ -17,6 +17,7 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(private val repository: NewsRepository): ViewModel() {
 
     val newsLiveData: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
+    val newsSavedData: MutableLiveData<List<Article>> = MutableLiveData()
     var newsPage = 1
 
     init {

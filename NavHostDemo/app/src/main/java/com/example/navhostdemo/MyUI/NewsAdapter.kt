@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.item_article.view.*
 class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     inner class NewsViewHolder(view: View): RecyclerView.ViewHolder(view)
+    private var ArticleList = mutableListOf<Article>()
 
     private val callback = object : DiffUtil.ItemCallback<Article>(){
         override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
