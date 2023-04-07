@@ -58,9 +58,9 @@ class DetailsFragment : Fragment() {
                             ?.let{
                                 article.url
                             }?: "https://google.com"))
-                            .let {
-                                ContextCompat.startActivity(requireContext(), it, null)
-                            }
+                        .let {
+                            ContextCompat.startActivity(requireContext(), it, null)
+                        }
                 } catch(e: Exception) {
                     Toast.makeText(context, "На устройстве нет браузера, который может открыть данную ссылку", Toast.LENGTH_SHORT)
                 }

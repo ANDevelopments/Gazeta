@@ -12,7 +12,7 @@ import com.example.navhostdemo.Models.Article
 interface ArticleDao {
 
     @Query("SELECT * FROM articles")
-    fun getAllArticles(): List<Article>
+    fun getAllArticles(): LiveData<List<Article>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(article: Article)

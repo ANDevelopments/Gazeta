@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.navhostdemo.Data.Api.NewsRepository
+import com.example.navhostdemo.Data.Api.db.ArticleDatabase
 import com.example.navhostdemo.Models.Article
 import com.example.navhostdemo.Models.NewsResponse
 import com.example.navhostdemo.Resource
@@ -17,16 +18,17 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(private val repository: NewsRepository): ViewModel() {
 
     val newsLiveData: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
-    val newsSavedData: MutableLiveData<List<Article>> = MutableLiveData()
     var newsPage = 1
 
     init {
         getNews()
     }
 
-    fun getSavedArticles() = viewModelScope.launch(Dispatchers.IO) {
-        repository.getFavoriteArticles()
-    }
+    fun getSavedArticles() = repository.getFavoriteArticles()
+
+//    fun getSavedArticles() = viewModelScope.launch(Dispatchers.IO) {
+//        repository.getFavoriteArticles()
+//    }
 
     fun deleteArticle(article: Article) = viewModelScope.launch(Dispatchers.IO) {
         repository.deleteFromFavorite(article = article)
