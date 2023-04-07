@@ -66,9 +66,13 @@ class DetailsFragment : Fragment() {
                 }
             }
 
+            var i = 0
+
             mBinding.iconFavorite.setOnClickListener {
+                if(i < 1)
                 viewModel.saveFavoriteArticle(article)
                 Snackbar.make(view, "Новость сохранена", Snackbar.LENGTH_SHORT).show()
+                i += 1
             }
 
             mBinding.iconShare.setOnClickListener {
